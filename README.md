@@ -1,17 +1,40 @@
-# capstone
+# Capstone Research and Project 2
 
-Git commands cheat sheet
+
+#### Git Commands (Cheat Sheet)
 
 This is a reference list of the most commonly used Git commands. (You might consider bookmarking this handy page.) Try to familiarize yourself with the commands so that you can eventually remember them all:
-    • Commands related to a remote repository:
-        ◦ git clone git@github.com:USER-NAME/REPOSITORY-NAME.git
-        ◦ git push or git push origin main (Both accomplish the same goal in this context)
-    • Commands related to the workflow:
-        ◦ git add .
-        ◦ git commit -m "A message describing what you have done to make this snapshot different"
-    • Commands related to checking status or log history
-        ◦ git status
-        ◦ git log
 
+1. Commands related to a remote repository:
+ * _git clone git@github.com:USER-NAME/REPOSITORY-NAME.git_
+ > Example: git clone https://github.com/MeecoA/capstone
+ * _git push or git push origin main (Both accomplish the same goal in this context)_
+ 
+2. Commands related to the workflow:
+ * _git add ._
+ > The dot (.) is included
+ 
+ * _git commit -m "Type your message here..."_
+ > "A message describing what you have done to make this snapshot different"
+ 
+ * _git commit -a -m "Type your message here..."_
+ > Add everything (-a()
+ 
+3. Commands related to checking status or log history
+ * git status
+ 
+ * git log
+ > Checks the history (commonly the commits and merge alongside the author and date)
+ > **Note**
+ > Since Git is running under VIM, 
+ type _:q_
+ in order to exit immediately or reach the end ([END])
+ 
+**Our Demo**
+# [CLICK ME!](https://meecoa.github.io/capstone/)
 
-https://meecoa.github.io/capstone/
+**Figma**
+# [Project Layout](https://www.figma.com/file/zNip9bmaybuNFc6LijQGdw/PMS?node-id=8%3A109)
+
+**Other Notes**
+[Markdown Tutorial](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
