@@ -9,7 +9,6 @@ button.addEventListener("click", (e) => {
 })
 
 
-
 //factory function. 
 const user = (name) => {
     // const sayName = ()=> {
