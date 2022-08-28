@@ -21,15 +21,17 @@ const user = (name) => {
 //module pattern.
 const create = (()=>{
     let users = []
-    const userName  = document.querySelector("#name"); 
+    let userName  = document.querySelector("#name"); 
     // let lastName = document.querySelector("#lastName");   
-    const meeco = user(userName); 
     const qrcode = new QRCode(document.querySelector("#qrcode"));
     const render = () => {
-        generateQr();       
+    generateQr();       
     function generateQr () {
-        console.log(meeco.userName)
-        qrcode.makeCode(userName.value)
+        let data = userName.value; 
+        const meeco = user(data); 
+        qrcode.makeCode(meeco.name);
+        users.push(meeco.name);
+        console.log(users);
     }
     }
     return {render}
