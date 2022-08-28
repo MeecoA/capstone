@@ -42,3 +42,28 @@ button {
 .btn-1:hover {
     filter: brightness(150%);
 }
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+.result {
+    height: 50vh;
+}
+input[type="text"] {
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+#qrcode{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+#qrcode img {
+    margin: 10px;
+}
+/* .info {
+    position: absolute;
+} */

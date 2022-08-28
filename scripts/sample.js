@@ -23,16 +23,23 @@ const create = (()=>{
     let users = []
     let userName  = document.querySelector("#name"); 
     // let lastName = document.querySelector("#lastName");   
-    const qrcode = new QRCode(document.querySelector("#qrcode"));
+   
     const render = () => {
     generateQr();       
+    }
+
     function generateQr () {
+        const qrContaier = document.querySelector("#qrcode");
+        const qrcode = new QRCode(document.querySelector("#qrcode"));
         let data = userName.value; 
         const meeco = user(data); 
         qrcode.makeCode(meeco.name);
         users.push(meeco.name);
         console.log(users);
-    }
+        const info = document.createElement("div"); 
+        qrContaier.appendChild(info)
+        info.classList.add("info")
+        info.textContent = data; 
     }
     return {render}
 })();
