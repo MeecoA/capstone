@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="admin.js" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bayon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/admin-dashboard.css">
+    <title>Admin Dashboard</title>
+</head>
+<!-- 
+    Things to do: 
+    1. Layout of the dashboard:
+        - sidebar
+        - maain content
+        - table layout
+        - pie chart 
+ -->
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="admin-details-box">
+                <div class="sidebar-logo"><iconify-icon icon="bxs:car-mechanic" style="color: white;" width="36" height="36"></iconify-icon></div>
+                <div class="owner-box">
+                    <div class="owner"> <span class="at">@/</span>OWNER </div>
+                    <div class="post">SUPERADMIN</div>
+                </div>
+            </div>
+            <div class="horizontal-box">
+                <div class="horizontal-line"></div>
+            </div>
+            <br>
+            <ul>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="bxs:dashboard" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">DASHBOARD</div>
+                </li>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="clarity:users-solid" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">USERS</div>
+                </li>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="bxs:car" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">VEHICLES</div>
+                </li>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="mdi:script-text" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">LOGS</div>
+                </li>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="bi:calendar-event-fill" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">EVENTS</div>
+                </li>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="icon-park-solid:report" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">REPORTS</div>
+                </li>
+                <li class="menu">
+                    <div class="sidebar-logo"><iconify-icon icon="zondicons:announcement" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">ANNOUNCEMENTS</div>
+                </li>
+            </ul>
+        </div>
+        <div class="header">
+                <div class="logo-holder">
+                    <div class="dashboard-logo"><iconify-icon icon="bxs:dashboard" style="color: white;" width="48" height="48"></iconify-icon></div>
+                    <div class="title">DASHBOARD</div>
+                </div>
+                <div class="util-holder">
+
+                    <div class="search-box">
+                        <div class="sidebar-logo"><iconify-icon icon="fa-solid:search" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        <div class="input">
+                            <input type="text" id="search" placeholder="Type here to see the magic!">
+                        </div>
+                    </div>
+
+                     <div class="utils">
+                        <div class="util-box">
+                            <div class="util-icons sidebar-logo"><iconify-icon icon="gg:dark-mode" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        </div>
+                        <div class="util-box">
+                            <div class="util-icons sidebar-logo"><iconify-icon icon="bx:message-alt-detail" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        </div>
+                        <div class="util-divider">
+                            <div class="util-icons sidebar-logo"><iconify-icon icon="fluent:divider-short-16-filled" style="color: white; font-size: 36px;"></iconify-icon></div>
+                        </div>
+                        <div class="util-box">
+                            <div class="util-icons sidebar-logo"><iconify-icon icon="octicon:screen-full-16" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        </div>
+                        <div class="util-box">
+                            <div class="util-icons sidebar-logo"><iconify-icon icon="ci:settings-filled" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        </div>
+                     </div>   
+
+                </div>
+        </div>
+        <div class="content">
+            <div class="items act-box"></div>
+            <div class="items no-user-box"></div>
+            <div class="items no-vehicle-box"></div>
+            <div class="items table-box"></div>
+            <div class="items pie-chart-box"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -33,7 +33,13 @@ const create = (()=>{
         const qrcode = new QRCode(document.querySelector("#qrcode"));
         let data = userName.value; 
         const meeco = user(data); 
-        qrcode.makeCode(meeco.name);
+        if(data === ""){
+            alert("Please enter something!")
+        }
+        else {
+            qrcode.makeCode(meeco.name);
+        }
+        
         users.push(meeco.name);
         console.log(users);
         const info = document.createElement("div"); 
