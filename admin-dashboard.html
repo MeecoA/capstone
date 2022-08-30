@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="admin.js" defer></script>
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+  <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer>
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,11 +109,222 @@
                 </div>
         </div>
         <div class="content">
-            <div class="items act-box"></div>
-            <div class="items no-user-box"></div>
-            <div class="items no-vehicle-box"></div>
-            <div class="items table-box"></div>
-            <div class="items pie-chart-box"></div>
+            <div class="items act-box">
+                <div class="content-titles">RECENT ACTIVIES</div>
+                <div class="percent-flex">
+                    <div class="percent-box">
+                        <div class="up-icon"><iconify-icon icon="akar-icons:circle-chevron-up-fill" style="color: white;" width="20" height="20"></iconify-icon></div>
+                        <div class="percent">13%</div>
+                    </div>
+                </div>
+                <div class="numbers">125</div>
+                <div class="graphs-container">
+                    <div class="line-graphs">
+                        <canvas id="line-act"></canvas>
+                    </div>
+                    <script>
+                        const labelsAct = [
+                          'January',
+                          'February',
+                          'March',
+                          'April',
+                          'May',
+                          'June',
+                        ];
+                      
+                        const dataLineAct = {
+                          labels: labelsAct,
+                          datasets: [{
+                            label: 'My First dataset',
+                            backgroundColor: '#157A55',
+                            borderColor: '#157A55',
+                            data: [0,0 ,0,0,0,0,],
+                          }]
+                        };
+                      
+                        const configLineAct = {
+                          type: 'line',
+                          data: dataLineAct,
+                          options: {}
+                        };
+                      </script>
+                      <script>
+                        const myChartLine1 = new Chart(
+                          document.getElementById('line-act'),
+                          configLineAct
+                        );
+                      </script>
+                </div>
+            </div>
+            <div class="items no-user-box">
+                <div class="content-titles">NO. OF USERS</div>
+                <div class="percent-flex">
+                    <div class="percent-box">
+                        <div class="up-icon"><iconify-icon icon="akar-icons:circle-chevron-up-fill" style="color: white;" width="20" height="20"></iconify-icon></div>
+                        <div class="percent">13%</div>
+                    </div>
+                </div>
+                <div class="numbers">525</div>
+                <div class="graphs-container">
+                    <div class="line-graphs">
+                        <canvas id="line"></canvas>
+                    </div>
+                    <script>
+                        const labels = [
+                          'January',
+                          'February',
+                          'March',
+                          'April',
+                          'May',
+                          'June',
+                        ];
+                      
+                        const dataLine = {
+                          labels: labels,
+                          datasets: [{
+                            label: 'My First dataset',
+                            backgroundColor: '#157A55',
+                            borderColor: '#157A55',
+                            data: [0, 10, 5, 2, 20, 30, 45],
+                          }]
+                        };
+                      
+                        const configLine = {
+                          type: 'line',
+                          data: dataLine,
+                          options: {}
+                        };
+                      </script>
+                      <script>
+                        const myChartLine = new Chart(
+                          document.getElementById('line'),
+                          configLine
+                        );
+                      </script>
+                </div>
+            </div>
+            <div class="items no-vehicle-box">
+                <div class="content-titles">NO. OF REGISTERED VEHICLES</div>
+                <div class="percent-flex">
+                    <div class="percent-box">
+                        <div class="up-icon"><iconify-icon icon="akar-icons:circle-chevron-up-fill" style="color: white;" width="20" height="20"></iconify-icon></div>
+                        <div class="percent">13%</div>
+                    </div>
+                </div>
+                <div class="numbers">125</div>
+                <div class="graphs"></div>
+            </div>
+            <div class="items table-box">
+                <div class="content-titles distri-flex">
+                    <div class="sidebar-logo"><iconify-icon icon="icon-park-solid:table-report" style="color: white;" width="36" height="36"></iconify-icon></div> 
+                    <div class="distri-title">LATEST REPORTS</div>
+                </div>
+                <div class="ayokona">
+                    <table id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>COLLEGE</th>
+                                <th>VEHICLE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Meeco Arcilla</td>
+                                <td>CICT</td>
+                                <td>Porche</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Alexis Cantoria</td>
+                                <td>CICT</td>
+                                <td>Dodge</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Jamiel Villsenor</td>
+                                <td>CICT</td>
+                                <td>Lycan</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Jesus King Ambrocio</td>
+                                <td>CICT</td>
+                                <td>BMW</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Mike Hernandez</td>
+                                <td>CICT</td>
+                                <td>Volkswagen</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Marc Aguinaldo</td>
+                                <td>CICT</td>
+                                <td>McLaren</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>John Sanchez</td>
+                                <td>CICT</td>
+                                <td>Mazda</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <script>  $(document).ready( function () {
+    $('#dataTable').DataTable();} );</script>
+            </div>
+            <div class="items pie-chart-box">
+                <div class="content-titles distri-flex">
+                    <div class="sidebar-logo"><iconify-icon icon="bxs:car" style="color: white;" width="36" height="36"></iconify-icon></div> 
+                    <div class="distri-title">DISTRIBUTION OF VEHICLES</div>
+                </div>
+                <div class="pie-flex">
+                <div class="pie-container">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                      </div>
+                      <script>
+                      
+                        const data = {
+                            labels: [
+                            'Recent',
+                            'Users',
+                            'Registered'
+                        ],
+                        datasets: [{
+                            label: 'My First Dataset',
+                            data: [125, 525, 125],
+                            backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)'
+                            ],
+                            hoverOffset: 4
+                        }]
+                        };
+       
+                      
+                        const config = {
+                          type: 'pie',
+                          data: data,
+                          options: {}
+                        };
+                      </script>
+                      <script>
+                        const myChart = new Chart(
+                          document.getElementById('myChart'),
+                          config
+                        );
+                      </script>
+                </div>
+            </div>
+            </div> 
+            
         </div>
     </div>
 </body>
