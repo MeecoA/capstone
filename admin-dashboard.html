@@ -14,6 +14,8 @@
   </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js" defer></script>
+    <script src="scripts/admin.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,33 +46,56 @@
             </div>
             <br>
             <ul>
-                <li class="menu">
+                <li>
+                    <a href="#" class="menu">
                     <div class="sidebar-logo"><iconify-icon icon="bxs:dashboard" style="color: white;" width="36" height="36"></iconify-icon></div>
                     <div class="title">DASHBOARD</div>
+                    </a>
                 </li>
-                <li class="menu">
+                <li>
+                    <button class="menu menu-btn" id="usersDropdown">
                     <div class="sidebar-logo"><iconify-icon icon="clarity:users-solid" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">USERS</div>
+                    <div class="drop-box">
+                        <div class="title">USERS</div>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">Security Officers</a>
+                        <a href="#">Personnels</a>
+                        <a href="#">Residents</a>
+                        <a href="#">Visitors</a>
+                      </div>
                 </li>
-                <li class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="bxs:car" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">VEHICLES</div>
+                <li>
+                    <a href="#" class="menu">
+                        <div class="sidebar-logo"><iconify-icon icon="bxs:car" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        <div class="title">VEHICLES</div>
+                    </a>
                 </li>
-                <li class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="mdi:script-text" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">LOGS</div>
+                <li>
+                    <a href="#" class="menu">
+                        <div class="sidebar-logo"><iconify-icon icon="mdi:script-text" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        <div class="title">LOGS</div>
+                    </a>
                 </li>
-                <li class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="bi:calendar-event-fill" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">EVENTS</div>
+                <li>
+                    <a href="#" class="menu">
+                        <div class="sidebar-logo"><iconify-icon icon="bi:calendar-event-fill" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        <div class="title">EVENTS</div>
+                    </a>
                 </li>
-                <li class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="icon-park-solid:report" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">REPORTS</div>
+                <li>
+                    <a href="#" class="menu">
+                        <div class="sidebar-logo"><iconify-icon icon="icon-park-solid:report" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        <div class="title">REPORTS</div>
+                    </a>
                 </li>
-                <li class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="zondicons:announcement" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">ANNOUNCEMENTS</div>
+                <li>
+                    <a href="#" class="menu">
+                        <div class="sidebar-logo"><iconify-icon icon="zondicons:announcement" style="color: white;" width="36" height="36"></iconify-icon></div>
+                        <div class="title">ANNOUNCEMENTS</div>
+                    </a>
                 </li>
             </ul>
         </div>
