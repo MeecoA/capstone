@@ -8,13 +8,13 @@
     <script
         src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-        crossorigin="anonymous">
-  </script>
-  <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer>
-  </script>
+        crossorigin="anonymous" defer>
+    </script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js" defer></script>
     <script src="scripts/admin.js" defer></script>
+    <script src="scripts/secTable.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,7 @@
             <br>
             <ul>
                 <li>
-                    <a href="#" class="menu">
+                    <a href="admin-dashboard.html" class="menu">
                     <div class="sidebar-logo"><iconify-icon icon="bxs:dashboard" style="color: white;" width="36" height="36"></iconify-icon></div>
                     <div class="title">DASHBOARD</div>
                     </a>
@@ -61,10 +61,10 @@
                     </div>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">Security Officers</a>
-                        <a href="#">Personnels</a>
-                        <a href="#">Residents</a>
-                        <a href="#">Visitors</a>
+                        <a onclick="loadSec()">Security Officers</a>
+                        <a onclick="loadPersonnel()">Personnels</a>
+                        <a onclick="loadResidents()">Residents</a>
+                        <a onclick="loadVisitors()">Visitors</a>
                       </div>
                 </li>
                 <li>
@@ -102,7 +102,7 @@
         <div class="header">
                 <div class="logo-holder">
                     <div class="dashboard-logo"><iconify-icon icon="bxs:dashboard" style="color: white;" width="48" height="48"></iconify-icon></div>
-                    <div class="title">DASHBOARD</div>
+                    <div class="title" id="headerTitle">DASHBOARD</div>
                 </div>
                 <div class="util-holder">
 
@@ -133,7 +133,7 @@
 
                 </div>
         </div>
-        <div class="content">
+        <div class="content" id="content">
             <div class="items act-box">
                 <div class="content-titles">RECENT ACTIVIES</div>
                 <div class="percent-flex">
@@ -245,7 +245,7 @@
                     <div class="distri-title">LATEST REPORTS</div>
                 </div>
                 <div class="box-table">
-                    <table id="dataTable">
+                    <table id="dataTable" class="display">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -300,8 +300,7 @@
                         </tbody>
                     </table>
                 </div>
-                <script>  $(document).ready( function () {
-    $('#dataTable').DataTable();} );</script>
+                <script>  </script>
             </div>
             <div class="items pie-chart-box">
                 <div class="content-titles distri-flex">
