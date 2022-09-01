@@ -1,11 +1,19 @@
 //for the data table 
 
 $(document).ready( function () {
-  $('table.display').DataTable();} );
+  $('table.display').DataTable(
+{
+  dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+}
+  );
+} );
 
 
-  $(document).ready( function () {
-    $('#secTable').DataTable();} );
+  // $(document).ready( function () {
+  //   $('#secTable').DataTable();} );
 
 
 //for dropdown content

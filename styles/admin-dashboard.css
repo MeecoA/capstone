@@ -345,6 +345,108 @@ canvas {
     width: 500px;
     height: 500px;
 }
+
+
+/* user added css */
+.school-logo-container {
+    height: 80px;
+    width: 80px; 
+
+}
+#bsuLogo {
+    height: 80px;
+    width: 80px
+}
+.pms-title-box {
+
+    padding: 10px;
+}
+.pms-title {
+    font-size: 20px;
+}
+.profile-box {
+
+    height: fit-content;
+}
+.fullname {
+    font-size: 30px;
+    height: 35px;
+}
+.category {
+    font-size: 20px;
+
+}
+    /* user-content css */
+.user-content {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.welcome-box { 
+    border: 3px dashed rgba(255, 255, 255, 0.25);
+}
+.welcome-title-box {
+    padding: 10px;
+    margin: 10px;
+    background-color:#11101D ;
+    border-radius: 20px;
+}
+.welcome-title-holder { 
+    display: flex;
+    align-items: center;
+}
+.welcome-icon {
+    margin-right: 10px;
+}
+.welcome-title {
+    font-size: 30px;
+    color: white;
+}
+.tips-box {
+
+}
+.tips-title {
+    color: white;
+    font-size: 30px;
+}
+.tips-items { 
+    display: flex;
+    align-items: center;
+    background: #11101D;
+    margin: 20px;
+    padding: 20px;
+    border-radius:20pt;
+}
+
+.tips-logo {
+    margin-right: 10px;
+}
+.tip {
+    color: white; 
+    font-size: 20px;
+    width: 50%;
+}
+.take-me {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* .add-new-box {
+    border: 1px solid red;
+}
+.add-twoF-box{
+
+}
+.fill-other-box {
+
+}
+ */
+
+
+/* media queries */
 @media only screen and (max-width: 1366px) {
     .container {
         height: fit-content;
