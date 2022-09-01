@@ -41,7 +41,7 @@ function loadSec() {
       document.getElementById("content").innerHTML = this.responseText;
     }
   }; 
-  xhttp.open("GET", "/sidebar/user-security.html",true);
+  xhttp.open("GET", "sidebar/user-security.html",true);
   xhttp.send();
 }
 function loadPersonnel() {
@@ -52,7 +52,7 @@ function loadPersonnel() {
       document.getElementById("content").innerHTML = this.responseText;
     }
   }; 
-  xhttp.open("GET", "/sidebar/user-personnel.html",true);
+  xhttp.open("GET", "sidebar/user-personnel.html",true);
   xhttp.send();
 }
 function loadResidents() {
@@ -63,7 +63,7 @@ function loadResidents() {
       document.getElementById("content").innerHTML = this.responseText;
     }
   }; 
-  xhttp.open("GET", "/sidebar/user-resident.html",true);
+  xhttp.open("GET", "sidebar/user-resident.html",true);
   xhttp.send();
 }
 
@@ -75,7 +75,7 @@ function loadVisitors() {
       document.getElementById("content").innerHTML = this.responseText;
     }
   }; 
-  xhttp.open("GET", "/sidebar/user-visitor.html",true);
+  xhttp.open("GET", "sidebar/user-visitor.html",true);
   xhttp.send();
 }
 
