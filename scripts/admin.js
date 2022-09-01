@@ -63,7 +63,7 @@ function loadResidents() {
       document.getElementById("content").innerHTML = this.responseText;
     }
   }; 
-  xhttp.open("GET", "/sidebar/user-resident.html",true);
+  xhttp.open("GET", "user-residen.html",true);
   xhttp.send();
 }
 
@@ -78,6 +78,10 @@ function loadVisitors() {
   xhttp.open("GET", "/sidebar/user-visitor.html",true);
   xhttp.send();
 }
+
+//user-sidebar
+
+
 
 //changing header when sidebar link is clicked
 
