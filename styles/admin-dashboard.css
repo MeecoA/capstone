@@ -378,19 +378,27 @@ canvas {
 }
     /* user-content css */
 .user-content {
+    
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 50px;
+    overflow: auto;
 }
 
 .welcome-box { 
     border: 3px dashed rgba(255, 255, 255, 0.25);
+    background-color: #191925;
+    border-radius: 20px;
+
 }
 .welcome-title-box {
     padding: 10px;
     margin: 10px;
     background-color:#11101D ;
     border-radius: 20px;
+
 }
 .welcome-title-holder { 
     display: flex;
@@ -403,9 +411,16 @@ canvas {
     font-size: 30px;
     color: white;
 }
-/* .tips-box {
-
-} */
+.welcome-message {
+    padding: 10px;
+    padding-left: 40px;
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+}
+.tips-box {
+    height: fit-content;
+}
 .tips-title {
     color: white;
     font-size: 30px;
@@ -434,6 +449,14 @@ canvas {
     justify-content: flex-end;
 }
 
+.qrbox {
+    background-color: #11101D;
+    border-radius: 20px;
+    height: 300px;
+}
+/* .user-main {
+    height: fit-content;
+} */
 /* .add-new-box {
     border: 1px solid red;
 }
