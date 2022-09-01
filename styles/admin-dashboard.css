@@ -403,9 +403,9 @@ canvas {
     font-size: 30px;
     color: white;
 }
-.tips-box {
+/* .tips-box {
 
-}
+} */
 .tips-title {
     color: white;
     font-size: 30px;
@@ -463,14 +463,14 @@ canvas {
         display: grid;
         grid-template-columns: 1fr;
     }
-    .no-user-box {
+    /* .no-user-box {
    
 
     }
     .no-vehicle-box {
  
 
-    }
+    } */
     /* .table-box {
         grid-column:1;
     }
