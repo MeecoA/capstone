@@ -1,25 +1,23 @@
+generateTable();
+generateDropdown();
+
+
 //for the data table 
-
-$(document).ready( function () {
-  $('table.display').DataTable(
-{
-  dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-}
-  );
-} );
-
-
-  // $(document).ready( function () {
-  //   $('#secTable').DataTable();} );
-
-
-//for dropdown content
-
-let dropDown = document.querySelectorAll(".menu-btn"); 
-
+function generateTable() {
+  $(document).ready( function () {
+    $('table.display').DataTable(
+  {
+    dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+  }
+    );
+  } );
+  }
+  
+function generateDropdown() {
+  let dropDown = document.querySelectorAll(".menu-btn"); 
 dropDown.forEach(function(item) {
     item.addEventListener("click", function() {
         item.classList.toggle("active") 
@@ -31,6 +29,8 @@ dropDown.forEach(function(item) {
         }
     });
 })
+}
+
 let headerTitle = document.querySelector("#headerTitle");
 //ajax - users side bar
 function loadSec() {
@@ -39,6 +39,7 @@ function loadSec() {
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
       document.getElementById("content").innerHTML = this.responseText;
+      generateTable() 
     }
   }; 
   xhttp.open("GET", "sidebar/user-security.html",true);
@@ -50,6 +51,7 @@ function loadPersonnel() {
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
       document.getElementById("content").innerHTML = this.responseText;
+      generateTable();
     }
   }; 
   xhttp.open("GET", "sidebar/user-personnel.html",true);
@@ -61,6 +63,7 @@ function loadResidents() {
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
       document.getElementById("content").innerHTML = this.responseText;
+      generateTable();
     }
   }; 
   xhttp.open("GET", "sidebar/user-resident.html",true);
@@ -73,6 +76,7 @@ function loadVisitors() {
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
       document.getElementById("content").innerHTML = this.responseText;
+      generateTable();
     }
   }; 
   xhttp.open("GET", "sidebar/user-visitor.html",true);

@@ -108,6 +108,7 @@ body {
 button {
     background: none;
     border: none;
+    font-family: ;
 }
 .dropdown-container {
     display: flex;
@@ -126,6 +127,16 @@ button {
     cursor: pointer;
     display: flex;
     width: 90%;
+    font-family: 'Bayon', sans-serif;
+}
+.dt-button {
+    border: 1px solid ;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.dt-button:hover {
+    background-color: gray;
 }
 /* dropdown classes */
 .active {
@@ -535,3 +546,11 @@ canvas {
         grid-column:1;
     } */
   }
+.sample {
+    border: 1px solid red;
+    background: white;
+    cursor: pointer;
+}
+.hide {
+    display: none;
+}
