@@ -1,7 +1,3 @@
-h1 {
-  font-size: 12px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -12,13 +8,15 @@ h1 {
 /* profile picture */
 .guard {
   height: 60px;
-  margin-top: 0;
+  display: flex;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .container {
   display:grid;
   height: 100vh;
-  grid-template-columns: 0fr 1fr 0fr ;
+  grid-template-columns: 20% 1fr 0fr ;
   grid-template-rows: 90px 1fr 0.1fr;
   grid-template-areas: 
     "sidebar header header"
@@ -29,39 +27,50 @@ h1 {
   font-family: 'Lexend Deca';
 }
 
+/* sidebar items*/
 .menu {
   display: flex;
-  align-items: center;
-  margin: 10px;
-  margin-left: 20px;
+  justify-content: flex-start;
   padding: 10px;
   color: white;
+  border-radius: 30px;
+  margin:auto;
 }
 
 .menu:hover{
   background-color: #FFC700;
-  border-radius: 15px;
+  margin-right: 10px;
+  margin:auto;
+  padding: 15px;
+  transition: 0.3s;
 }
 
 h1 {
-  margin-left: 120px;
-  margin-top: -90px;
-  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 16px;
+  padding: 10px;
+  align-items: center;
   font-weight: 700;
 }
 
-img {
-  height: 80px;
-  padding: auto;
-  margin: 20px;
-  margin-top: 10px;
+.school-logo {
+  height:90px;
+}
+
+/* title box/bulsu icon on sidebar */
+.website-title {
+  display: flex;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .sidebar {
   font-size: 15px;
   background-color: #0085FF;
   grid-area: sidebar;
-  padding: 5px;
+  padding: 15px;
 }
 
 .header {
@@ -76,33 +85,34 @@ img {
   justify-content: space-between;
 }
 
+/* sidebar text */
 .title {
   color: white;
+  padding:10px;
 }
 
-.home{
-  padding-top: 30px;
-}
-
+/* horizontal divider on side lowerside */
 .line {
   background-color: white;
   height: 3px;
   margin: auto;
-  width: 250px;
+  width: 220px;
 }
 
-.title {
-  padding:10px;
+/* horizontal divider on side topside */
+.line-1 {
+  background-color: white;
+  height: 3px;
+  margin: auto;
+  width: 220px;
+  margin-top: 10px;
 }
 
 .logout {
   margin-top: 10px;
 }
 
-.sidebar-logo:hover {
-  background: orange;
-}
-
+ /* header div icons */
 .utility {
   display: flex;
   flex-direction: row;
@@ -110,38 +120,51 @@ img {
   padding: 15px;
 }
 
+/* header icons */
 .nav-logo {
   padding:5px;
   cursor: pointer;
 }
 
+/* divider on header icons */
 #divider {
   cursor:default;
 }
 
-.name {
+.name-sg {
   font-weight: 800;
   font-size: 20px;
-  align-items: center;
 }
 
+/* type of user */
 .type {
   color: #3CA1FF;
 }
 
+/* security guard box */
 .sg-box{
   padding: 5px;
   display: flex;
   flex-direction: column;
-  
 }
 
+/* box of profile picture */
 .guard_box {
-  margin-top: 10px;
+  padding: 10px;
+  justify-content: flex-start;
   display: flex;
   flex-direction: row;
 }
 
+.home{
+  padding-top: 10px;
+}
+
+.logs {
+  padding-bottom: 10px;
+}
+
+/* whole box of content */
 .content {
   grid-area: content;
   display:grid;
@@ -158,6 +181,7 @@ img {
   flex-direction: row;
 }
 
+/* first half box of content */
 .content1 {
   grid: content1;
   display: flex;
@@ -165,6 +189,21 @@ img {
   margin: auto;
 }
 
+/* second half box of content */
+.content2 {
+  grid:content2;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70% 15% 19%;
+  grid-template-areas: 
+  "scanner"
+  "btn-scan"
+  "scan-icon";
+  justify-content:center;
+  padding: 5px;
+}
+
+/* divider on content box */
 .divider {
   display: flex;
   grid:divider;
@@ -178,36 +217,34 @@ img {
   background-color: #C1CFDB;
 }
 
-.content2 {
-  grid:content2;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 70% 20% 15%;
-  grid-template-areas: 
-  "scanner"
-  "btn-scan"
-  "scan-icon";
-  justify-content:center;
-  padding: 5px;
-}
-
+/* visitor button*/
 .visitor {
   display: flex;
   justify-content: flex-end;
 }
 
+/* scanner icon and gate # line */
 .scan-icon {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  margin:15px;
-  
+  justify-content: space-between;
+  padding: 30px;
+  align-items: center;
 }
+
+.usbcameraicon {
+  display: flex;
+  height: 36px;
+  
+} 
+
 p {
+  align-self: center;
   font-weight:bolder;
   text-transform: uppercase;
 }
 
+/* scanning ready button */
 .btn-scan {
   cursor: pointer;
   background: black;
@@ -220,6 +257,7 @@ p {
   width: 200px;
 }
 
+/* place where the scanner takes place */
 .scanner {
   display: flex;
   margin: 10px;
@@ -228,6 +266,7 @@ p {
   align-items: center;
 }
 
+/* properties of visitor button */
 #btn-visitor {
   cursor: pointer;
   background: black;

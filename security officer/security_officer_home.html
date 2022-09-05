@@ -12,31 +12,41 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <img src="bulsu.png" alt="school_logo">
-           <h1>BulSU Parking<br>Management <br>System</h1> 
-           <br>
+            <!-- title box/bulsu icon on sidebar -->
+            <div class="website-title">
+                <img class = "school-logo" src="bulsu.png" alt="school-logo">
+                <h1> BulSU Parking  <br>
+                    Management<br>
+                    System
+                </h1> 
+            </div>
+
+           <!-- sidebar divider -->
+           <div class="line-1"></div>
            <ul>
                 <li class="home">
                     <a href="security_officer_home.html" class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="bxs:dashboard" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="sidebar-home"><iconify-icon icon="bxs:dashboard" style="color: white;" width="36" height="36"></iconify-icon></div>
                     <div class="title">Home</div>
                     </a>
                 </li>
                 <li>
                     <a href="security_officer_home.html" class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="carbon:user-avatar-filled" style="color: white;" width="36" height="36"></iconify-icon></div>
-                    <div class="title">My Profile</div>
+                    <div class="sidebar-profile"><iconify-icon icon="carbon:user-avatar-filled" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="title">My Account</div>
                     </a>
                 </li>
-                <li>
+                <li class="logs">
                     <a href="security_officer_home.html" class="menu">
-                    <div class="sidebar-logo"><iconify-icon icon="mdi:script-text" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="sidebar-logs"><iconify-icon icon="heroicons:newspaper-solid" style="color: white;" width="36" height="36"></iconify-icon></div>
                     <div class="title">Logs</div>
                     </a>
                 </li>
             </ul>
 
+            <!-- sidebar divider -->
            <div class="line"></div>
+
            <div class="logout">
             <ul>
                 <li>
@@ -48,18 +58,19 @@
                 </li>
             </ul>
            </div>
-        
-        
         </div>
 
         <div class="header">
+            <!-- security guard box  -->
             <div class="guard_box">
                 <img class="guard" src="guard.png" alt="sg">
              <div class="sg-box">
-                <div class="name">RIVERS, Bruce</div> 
+                <div class="name-sg">RIVERS, Bruce</div> 
                 <div class="type">Security Officer</div>
              </div>
             </div>
+            
+        <!-- box of navigation icons -->
         <div class="utility">
             <div class="nav-logo">
                 <iconify-icon icon="carbon:notification-filled" style="color: #3CA1FF;" width="36" height="36"></iconify-icon>
@@ -97,6 +108,9 @@
                 <button class = "btn-scan" type="button">Scanning ready</button>
 
                 <div class="scan-icon">
+                    <div class="usbcameraicon">
+                        <img src="../images/icons/usbCamera.png" alt="">
+                    </div>
                     <p>Gate 4</p>
                 </div>
             </div>
