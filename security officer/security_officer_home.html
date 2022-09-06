@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lexend Deca' rel='stylesheet'>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+   
 </head>
 <body>
     <div class="container">
@@ -23,26 +24,29 @@
 
            <!-- sidebar divider -->
            <div class="line-1"></div>
+
+           <div class="sidebar-pages">
            <ul>
-                <li class="home">
+                <li class="home" id="img-home">
                     <a href="security_officer_home.html" class="menu">
-                    <div class="sidebar-home"><iconify-icon icon="bxs:dashboard" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="sidebar-logo"><iconify-icon icon="bxs:dashboard" style = height:36px; width = 36px></iconify-icon></div>
                     <div class="title">Home</div>
                     </a>
                 </li>
-                <li>
+                <li id="img-account">
                     <a href="security_officer_home.html" class="menu">
-                    <div class="sidebar-profile"><iconify-icon icon="carbon:user-avatar-filled" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="sidebar-logo"><iconify-icon icon="carbon:user-avatar-filled" style = height:36px; width = 36px></iconify-icon></div>
                     <div class="title">My Account</div>
                     </a>
                 </li>
-                <li class="logs">
+                <li class="logs" id="img-logs">
                     <a href="security_officer_home.html" class="menu">
-                    <div class="sidebar-logs"><iconify-icon icon="heroicons:newspaper-solid" style="color: white;" width="36" height="36"></iconify-icon></div>
+                    <div class="sidebar-logo"><iconify-icon icon="heroicons:newspaper-solid" style = height:36px; width = 36px></iconify-icon></div>
                     <div class="title">Logs</div>
                     </a>
                 </li>
             </ul>
+            </div>
 
             <!-- sidebar divider -->
            <div class="line"></div>
@@ -51,7 +55,7 @@
             <ul>
                 <li>
                 <a href="security_officer_home.html" class="menu">
-                <div class="sidebar-logo"><iconify-icon icon="eva:log-out-outline" style="color: white;" width="36" height="36"></iconify-icon></div>
+                <div class="sidebar-logo"><iconify-icon icon="eva:log-out-outline" style = height:36px; width = 36px></iconify-icon></div>
 
                 <div class="title">Logout</div>
                 </a>
@@ -63,7 +67,7 @@
         <div class="header">
             <!-- security guard box  -->
             <div class="guard_box">
-                <img class="guard" src="guard.png" alt="sg">
+                <img class="guard" src="../images/icons/sg-icon.png" alt="sg">
              <div class="sg-box">
                 <div class="name-sg">RIVERS, Bruce</div> 
                 <div class="type">Security Officer</div>
@@ -73,19 +77,19 @@
         <!-- box of navigation icons -->
         <div class="utility">
             <div class="nav-logo">
-                <iconify-icon icon="carbon:notification-filled" style="color: #3CA1FF;" width="36" height="36"></iconify-icon>
+                <iconify-icon icon="carbon:notification-filled" ></iconify-icon>
             </div>
             <div class="nav-logo">
-                <iconify-icon icon="gg:dark-mode" style="color: #3CA1FF;" width="36" height="36"></iconify-icon>
+                <iconify-icon icon="gg:dark-mode"></iconify-icon>
             </div>
             <div class="nav-logo">
-                <iconify-icon icon="octicon:screen-full-16" style="color: #3CA1FF;" width="36" height="36"></iconify-icon>
+                <iconify-icon icon="octicon:screen-full-16" ></iconify-icon>
             </div>
-            <div id = "divider" class="nav-logo">
-                <iconify-icon icon="fluent:divider-short-16-filled" style="color: white; font-size: 36px;"></iconify-icon>
+            <div class="uti-divider">
+                <iconify-icon icon="fluent:divider-short-16-filled"></iconify-icon>
             </div>
             <div class="nav-logo">
-                <iconify-icon icon="ci:settings-filled" style="color: #3CA1FF;" width="36" height="36"></iconify-icon>
+                <iconify-icon icon="ci:settings-filled"></iconify-icon>
             </div>
         </div>
 
@@ -122,6 +126,6 @@
         
     </div>
 
-    
+    <script src="../scripts/security_officer.js"></script>
 </body>
 </html>

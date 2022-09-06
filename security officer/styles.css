@@ -3,21 +3,14 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-}
-
-/* profile picture */
-.guard {
-  height: 60px;
-  display: flex;
-  padding-right: 10px;
-  padding-left: 10px;
+  font-family: 'Lexend Deca';
 }
 
 .container {
   display:grid;
   height: 100vh;
   grid-template-columns: 0.25fr 1fr 0fr ;
-  grid-template-rows: 90px 1fr 0.1fr;
+  grid-template-rows: 80px 1fr 0.1fr;
   grid-template-areas: 
     "sidebar header header"
     "sidebar content content"
@@ -37,8 +30,9 @@
 }
 
 .menu:hover {
-  border-left:10px solid #FFC700;
-  transform: 5s;
+  border-left: 10px solid #FFC700;
+  color: #FFC700;
+  transition: 0.3s;
 }
 
 h1 {
@@ -53,78 +47,41 @@ h1 {
 
 .school-logo {
   height:90px;
+  padding: 10px;
 }
 
 /* title box/bulsu icon on sidebar */
 .website-title {
   display: flex;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .sidebar {
   font-size: 15px;
   background-color: #0085FF;
   grid-area: sidebar;
-  padding: 15px;
 }
 
 .header {
   background-color: #C1CFDB;
   grid-area: header;
   border-radius: 15px;
-  margin-top: 10px;
   font-size: 15px;
   margin-right: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "guard_box sg-box utility";
+}
+
+/* profile picture */
+.guard {
+  height: 60px;
   display: flex;
-  padding: 0;
-  justify-content: space-between;
-}
-
-/* sidebar text */
-.title {
-  color: white;
-  padding:10px;
-}
-
-/* horizontal divider on side lowerside */
-.line {
-  background-color: white;
-  height: 3px;
-  margin: auto;
-  width: 250px;
-}
-
-/* horizontal divider on side topside */
-.line-1 {
-  background-color: white;
-  height: 3px;
-  margin: auto;
-  width: 250px;
-  margin-top: 10px;
-}
-
-.logout {
-  margin-top: 10px;
-}
-
- /* header div icons */
-.utility {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  padding: 15px;
-}
-
-/* header icons */
-.nav-logo {
-  padding:5px;
-  cursor: pointer;
-}
-
-/* divider on header icons */
-#divider {
-  cursor:default;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .name-sg {
@@ -135,21 +92,89 @@ h1 {
 /* type of user */
 .type {
   color: #3CA1FF;
+  font-size: 14px;
+}
+
+/* box of profile picture */
+.guard_box {
+  grid-area: guard_box;
+  padding: 10px;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
 }
 
 /* security guard box */
 .sg-box{
+  grid-area: sg-box;
   padding: 5px;
   display: flex;
   flex-direction: column;
 }
 
-/* box of profile picture */
-.guard_box {
+.uti-divider {
+  font-size: 45px;
+  line-height: 20px;
+  width: 30px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+ /* header div icons */
+ .utility {
+  grid-area: utility;
+  align-items: center;
+  justify-content: flex-end;
   padding: 10px;
-  justify-content: flex-start;
   display: flex;
   flex-direction: row;
+}
+
+/* header icons */
+.nav-logo {
+  color:#3CA1FF;
+  cursor: pointer;
+  align-items: center;
+  justify-items: center;
+  border-radius: 15px;
+  padding: 8px;
+  font-size: 36px;
+  line-height: 20px;
+}
+
+.nav-logo:hover {
+  color:white;
+  background-color: #3CA1FF;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+/* sidebar text */
+.title {
+  padding:10px;
+}
+
+/* horizontal divider on side lowerside */
+.line {
+  background-color: white;
+  height: 3px;
+  margin: auto;
+  width: 220px;
+}
+
+/* horizontal divider on side topside */
+.line-1 {
+  background-color: white;
+  height: 3px;
+  margin: auto;
+  width: 220px;
+  margin-top: 10px;
+}
+
+.logout {
+  margin-top: 10px;
 }
 
 .home{
@@ -235,7 +260,6 @@ h1 {
 .usbcameraicon {
   display: flex;
   height: 36px;
-  
 } 
 
 p {
