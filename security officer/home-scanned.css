@@ -1,0 +1,427 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Lexend Deca';
+  }
+  
+  .container {
+    display:grid;
+    height: 100vh;
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-rows: 0.1fr 0.1fr 1fr 1fr;
+    grid-template-areas: 
+      "sidebar header header"
+      "sidebar search-area search-area"
+      "sidebar content content"
+      "sidebar content content"
+      "sidebar visitor visitor";
+    grid-gap: 0.5rem;
+    font-family: 'Lexend Deca';
+  }
+  
+  
+  /* sidebar items*/
+  .menu {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 10px 10px 20px;
+    color: white;
+    border-left: 5px solid transparent;
+  }
+  
+  .menu:hover {
+    border-left: 5px solid #FFC700;
+    color: #FFC700;
+    transition: 0.2s;
+  }
+  
+  .bulsu-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 17px;
+    align-items: center;
+    font-weight: 700;
+  }
+
+  .P-info, .V-info {
+    font-size: 17px;
+    margin: 0;
+  }
+  
+  .school-logo {
+    height:90px;
+    padding: 10px;
+  }
+  
+  /* title box/bulsu icon on sidebar */
+  .website-title {
+    display: flex;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  
+  .sidebar {
+    font-size: 15px;
+    background-color: #0085FF;
+    grid-area: sidebar;
+  }
+  
+  .header {
+    background-color: #C1CFDB;
+    grid-area: header;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 15px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "guard_box sg-box utility";
+  }
+  
+  /* profile picture */
+  .guard {
+    height: 60px;
+    display: flex;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  .name-sg {
+    font-weight: 800;
+    font-size: 20px;
+  }
+  
+  /* type of user */
+  .type {
+    color: #3CA1FF;
+    font-size: 14px;
+  }
+  
+  /* box of profile picture */
+  .guard_box {
+    grid-area: guard_box;
+    padding: 10px;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* security guard box */
+  .sg-box{
+    grid-area: sg-box;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .uti-divider {
+    font-size: 45px;
+    line-height: 20px;
+    width: 30px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+  }
+  
+   /* header div icons */
+   .utility {
+    grid-area: utility;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* header icons */
+  .nav-logo {
+    color:#3CA1FF;
+    cursor: pointer;
+    align-items: center;
+    justify-items: center;  
+    border-radius: 15px;
+    padding: 8px;
+    font-size: 30px;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .nav-logo:hover {
+    color:#FFC700;
+    background-color: #3CA1FF;
+    border-radius: 15px;
+    transition: 0.2s;
+  }
+  
+  /* sidebar text */
+  .title {
+    padding:10px;
+  }
+  
+  /* horizontal divider on side lowerside */
+  .line {
+    background-color: white;
+    height: 3px;
+    margin: auto;
+    width: 210px;
+  }
+  
+  /* horizontal divider on side topside */
+  .line-1 {
+    background-color: white;
+    height: 3px;
+    margin: auto;
+    width: 210px;
+    margin-top: 10px;
+  }
+  
+  .logout {
+    margin-top: 10px;
+  }
+  
+  .home{
+    padding-top: 10px;
+    color:white;
+  }
+  .home:hover {
+    color:#FFC700;
+  }
+  
+  .logs {
+    padding-bottom: 10px;
+  }
+  
+  .search-area {
+    grid-area: search-area;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 20px;
+  }
+  
+  .search-outline {
+    display: flex;
+    border: 2px solid black;
+    width: 300px;
+    border-radius: 15px;
+    align-items: center;
+  }
+  
+  #search {
+    border: 0px solid transparent;
+    background: none;
+    padding: 5px;
+    width: 220px;
+  }
+  
+  #search:focus {
+    outline: none;
+  }
+  
+  .search-icon {
+    font-size: 30px;
+    align-self: center;
+    line-height: 20px;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+  }
+  
+  ::-webkit-input-placeholder{
+    font-size: 15px;
+  
+  }
+  
+  /* whole box of content */
+  .content {
+    grid-area: content;
+    display:grid;
+    grid-template-columns: 0.8fr 5px 1fr ;
+    grid-template-rows: 1fr 1fr; 
+    grid-template-areas: 
+    "content1 divider content2"
+    "content1 divider content2";
+    border-radius: 15px;
+    border: 2px solid black;
+    height: 350px;
+    width: auto;
+    margin: 0px 20px 0px 10px;
+    flex-direction: row;
+  }
+  
+  /* first half box of content */
+  .content1 {
+    grid: content1;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  /* second half box of content */
+  .content2 {
+    grid:content2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr 0.2fr 0fr 1fr 0.5fr;
+    grid-template-areas: 
+    "vehicle-information"
+    "car-info"
+    "line-info"
+    "personal-information"
+    "personal-info"
+    "buttons-information";
+    grid-gap: 0.5rem;
+    padding: 20px 20px 5px 20px;
+  }
+
+  .vehicle-information {
+    grid-area: vehicle-information;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+    margin-left: 30px;
+  }
+  
+  .car-info {
+    grid-area: car-info;
+    display: flex;
+    align-items: flex-start;
+    grid-gap: 20px;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .car-icon, .user-icon {
+    height: 50px; 
+  }
+  
+  .info-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .line-info {
+    grid-area: line-info;
+    width: auto;
+    background-color:#C1CFDB;
+    height: 3px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .personal-information {
+    grid-area: personal-information;
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    margin-left: 30px;
+  }
+  
+  .personal-info {
+    grid-area: personal-info;
+    display: flex;
+    grid-gap: 20px;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+
+  .buttons-information {
+    grid-area: buttons-information;
+    display: flex;
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #btn-reject, #btn-confirm {
+    width: 240px;
+    border-radius: 25px;
+    border: none;
+    flex-direction: row;
+    text-transform: uppercase;
+    font-weight: bolder;
+    box-shadow: 0px 5px 10px gray;
+  }
+
+  #btn-reject:hover {
+    background: red;
+    transition: 0.3s;
+    color: white;
+  }
+
+  #btn-confirm:hover {
+    background: #32CD32;
+    transition: 0.3s;
+    color: white;
+  }
+  
+  #btn-confirm {
+    background: black;
+    color: white;
+    font-weight: bolder;
+  }
+
+  /* divider on content box */
+  .divider {
+    display: flex;
+    grid:divider;
+  }
+  
+  .vertical-line {
+    display: flex;
+    width: 3px;
+    background-color:#C1CFDB;
+    height: 300px;
+    margin-top: 20px;
+  }
+  
+  /* visitor button*/
+  .visitor {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+  
+  
+  /* properties of visitor button */
+  #btn-visitor {
+    cursor: pointer;
+    background: black;
+    border-radius: 15px;
+    color: white;
+    padding: 5px;
+    grid-area: visitor;
+    font-size: 12px;
+    height: 30px;
+    width: 200px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    border: none;
+  }
+
+  #btn-visitor:hover {
+    background:#0085FF;
+    color: black;
+    transition: 0.2s;
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .container{
+      grid-template-columns: 1fr;
+      
+     
+    }
+  }
+  
+  
