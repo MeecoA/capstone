@@ -246,29 +246,67 @@
     grid-area: content;
     display:grid;
     grid-template-columns: 0.8fr 5px 1fr ;
-    grid-template-rows: 1fr 1fr; 
+    grid-template-rows: 1fr; 
     grid-template-areas: 
-    "content1 divider content2"
     "content1 divider content2";
     border-radius: 15px;
     border: 2px solid black;
     height: 350px;
     width: auto;
-    margin: 0px 20px 0px 10px;
     flex-direction: row;
+    margin: 0px 20px 0px 10px;
   }
   
   /* first half box of content */
   .content1 {
-    grid: content1;
-    display: flex;
-    justify-content: center;
+    grid-area: content1;
     margin: auto;
+    
   }
-  
+
+  .output-box {
+    background-image: url("../images/icons/qrCodeScanned-2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:50%;
+    display: grid;
+    height: 280px;
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 5px 4px #BEBEBE;
+    grid-template-columns: 0.7fr 1fr;
+    grid-template-rows: 0.1fr;
+    grid-template-areas: 
+    "output-text output-text2";
+
+  }
+
+  .output-text {
+    grid-area: output-text;
+    display: flex;
+    border-bottom: 2px solid black;
+    border-top-left-radius: 20px;
+    padding: 10px;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+
+  .output-text2 {
+    grid-area: output-text2;
+    display: flex;
+    background-color: aqua;
+    padding: 10px;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    transform: rotate(-45deg);
+    border-top: 2px solid black;
+  }
+
   /* second half box of content */
   .content2 {
-    grid:content2;
+    grid-area:content2;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0fr 1fr 0.2fr 0fr 1fr 0.5fr;
@@ -280,7 +318,7 @@
     "personal-info"
     "buttons-information";
     grid-gap: 0.5rem;
-    padding: 20px 20px 5px 20px;
+    padding: 20px 20px 20px 30px;
   }
 
   .vehicle-information {
@@ -390,7 +428,8 @@
   .visitor {
     display: flex;
     justify-content: flex-end;
-    margin-right: 20px;
+    margin-right: 15px;
+    padding-bottom: 10px;
   }
   
   
@@ -400,7 +439,6 @@
     background: black;
     border-radius: 15px;
     color: white;
-    padding: 5px;
     grid-area: visitor;
     font-size: 12px;
     height: 30px;
@@ -419,8 +457,7 @@
   @media only screen and (max-width: 550px) {
     .container{
       grid-template-columns: 1fr;
-      
-     
+    
     }
   }
   
