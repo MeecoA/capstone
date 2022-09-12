@@ -137,6 +137,8 @@ button {
 .dt-button:hover {
     background-color: gray;
 }
+
+
 /* dropdown classes */
 .active {
     background-color: rgba(35, 32, 61, 1);
@@ -289,6 +291,29 @@ a {
     color: black;
     padding: 20px;
 }
+.no-footer {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: 'Lexend Deca';
+}
+.actions-button {
+    background-color: gray;
+    padding: 5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.actions-button:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    transition: 0.3s;
+}
+.actions-button:active {
+    background-color: gray;
+}
 /* .act-box {
     
 }
@@ -350,6 +375,7 @@ a {
     flex-direction: column;
     grid-column: 1/4;
     grid-row: 1/3;
+    height: fit-content;
 }
 
 canvas {

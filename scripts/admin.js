@@ -34,7 +34,7 @@ dropDown.forEach(function(item) {
 let headerTitle = document.querySelector("#headerTitle");
 //ajax - users side bar
 function loadSec() {
-  headerTitle.textContent = "Security"
+  headerTitle.textContent = "Users"
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
@@ -46,7 +46,7 @@ function loadSec() {
   xhttp.send();
 }
 function loadPersonnel() {
-  headerTitle.textContent = "Personnel"
+  headerTitle.textContent = "Users"
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
@@ -58,7 +58,7 @@ function loadPersonnel() {
   xhttp.send();
 }
 function loadResidents() {
-  headerTitle.textContent = "Residents"
+  headerTitle.textContent = "Users"
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
@@ -71,7 +71,7 @@ function loadResidents() {
 }
 
 function loadVisitors() {
-  headerTitle.textContent = "Visitors"
+  headerTitle.textContent = "Users"
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if(this.readyState == 4 && this.status == 200) {
