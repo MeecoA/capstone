@@ -37,12 +37,12 @@
   transition: 0.2s;
 }
 
-h1 {
+
+.bulsu-name {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  font-size: 16px;
-  padding: 10px;
+  font-size: 18px;
   align-items: center;
   font-weight: 700;
 }
@@ -64,6 +64,7 @@ h1 {
   background-color: #0085FF;
   grid-area: sidebar;
 }
+
 
 .header {
   background-color: #C1CFDB;
