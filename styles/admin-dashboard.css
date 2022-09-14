@@ -111,6 +111,12 @@ button {
   flex-direction: column;
   display: none;
   padding-left: 90px;
+  transform: translateY(-10px);
+  transition: opacity 150s ease-in-out, transform 150mx ease-in-out;
+}
+.dropdown-container a:focus + .dropdown-container {
+  opacity: 1;
+  transform: translateY(0);
 }
 .dropdown-container a {
   text-decoration: none;
@@ -122,6 +128,7 @@ button {
 .dropdown-container a:hover {
   background-color: #1d90ed;
   border-radius: 20px;
+  transition: 0.3s;
 }
 #usersDropdown {
   cursor: pointer;
@@ -144,6 +151,7 @@ button {
   background-color: #1d90ed;
   border-radius: 20px;
   color: black;
+  transition: 0.3s;
 }
 a {
   text-decoration: none;

@@ -1,6 +1,11 @@
+let secLink = document.querySelector("#secLink");
+let persLink = document.querySelector("#persLink");
+let resiLink = document.querySelector("#resiLink");
+let visiLink = document.querySelector("#visiLink");
+let vehiLink = document.querySelector(".vehi-link");
+let logLink = document.querySelector(".log-link");
+let annoLink = document.querySelector(".anno-link");
 generateTable();
-generateDropdown();
-
 //for the data table
 function generateTable() {
   $(document).ready(function () {
@@ -10,29 +15,31 @@ function generateTable() {
     });
   });
 }
+let dropDown = document.querySelector(".menu-btn");
+let dropdownContent = document.querySelector(".dropdown-container");
 
 function generateDropdown() {
-  let dropDown = document.querySelectorAll(".menu-btn");
-  dropDown.forEach(function (item) {
-    item.addEventListener("click", function () {
-      item.classList.toggle("active");
-      let dropdownContent = item.nextElementSibling;
-      if (dropdownContent.style.display === "flex") {
-        dropdownContent.style.display = "none";
-      } else {
-        dropdownContent.style.display = "flex";
-      }
-    });
+  dropDown.addEventListener("click", function () {
+    dropDown.classList.toggle("active");
+    vehiLink.classList.remove("active");
+    logLink.classList.remove("active");
+    annoLink.classList.remove("active");
+
+    secLink.classList.remove("active");
+    persLink.classList.remove("active");
+    resiLink.classList.remove("active");
+    visiLink.classList.remove("active");
+
+    if (dropdownContent.style.display === "flex") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "flex";
+    }
   });
 }
-
+generateDropdown();
 let headerTitle = document.querySelector("#headerTitle");
 //ajax - users side bar
-
-let secLink = document.querySelector("#secLink");
-let persLink = document.querySelector("#persLink");
-let resiLink = document.querySelector("#resiLink");
-let visiLink = document.querySelector("#visiLink");
 
 function loadSec() {
   headerTitle.textContent = "Users";
@@ -60,6 +67,7 @@ function loadPersonnel() {
       persLink.classList.add("active");
       resiLink.classList.remove("active");
       visiLink.classList.remove("active");
+
       generateTable();
     }
   };
@@ -112,6 +120,11 @@ function loadVehicles() {
       resiLink.classList.remove("active");
       visiLink.classList.add("active");
 
+      dropdownContent.style.display = "none";
+      dropDown.classList.remove("active");
+      vehiLink.classList.add("active");
+      logLink.classList.remove("active");
+      annoLink.classList.remove("active");
       generateTable();
     }
   };
@@ -130,6 +143,11 @@ function loadLogs() {
       resiLink.classList.remove("active");
       visiLink.classList.add("active");
 
+      dropdownContent.style.display = "none";
+      dropDown.classList.remove("active");
+      vehiLink.classList.remove("active");
+      logLink.classList.add("active");
+      annoLink.classList.remove("active");
       generateTable();
     }
   };
@@ -148,6 +166,11 @@ function loadAnnounce() {
       resiLink.classList.remove("active");
       visiLink.classList.add("active");
 
+      dropdownContent.style.display = "none";
+      dropDown.classList.remove("active");
+      vehiLink.classList.remove("active");
+      logLink.classList.remove("active");
+      annoLink.classList.add("active");
       generateTable();
     }
   };
