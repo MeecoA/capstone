@@ -52,11 +52,14 @@ function loadSec() {
       resiLink.classList.remove("active");
       visiLink.classList.remove("active");
       generateTable();
+      let addSec = document.querySelector("#addSec");
+      addSec.addEventListener("click", () => {});
     }
   };
   xhttp.open("GET", "sidebar/user-security.html", true);
   xhttp.send();
 }
+
 function loadPersonnel() {
   headerTitle.textContent = "Users";
   let xhttp = new XMLHttpRequest();

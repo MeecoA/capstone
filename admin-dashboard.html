@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="admin.js" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
@@ -47,7 +47,11 @@
       src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"
       defer
     ></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Lexend Deca"
       rel="stylesheet"
@@ -100,18 +104,17 @@
         </div>
         <br />
         <ul>
-            <a id="dashLink" href="admin-dashboard.html" class="menu">
-              <div class="sidebar-logo">
-                <iconify-icon
-                  icon="bxs:dashboard"
-                  style="color: #474747"
-                  width="36"
-                  height="36"
-                ></iconify-icon>
-              </div>
-              <div class="title">DASHBOARD</div>
-            </a>
-          </li>
+          <a id="dashLink" href="admin-dashboard.html" class="menu">
+            <div class="sidebar-logo">
+              <iconify-icon
+                icon="bxs:dashboard"
+                style="color: #474747"
+                width="36"
+                height="36"
+              ></iconify-icon>
+            </div>
+            <div class="title">DASHBOARD</div>
+          </a>
           <li>
             <button class="menu menu-btn" id="usersDropdown">
               <div class="sidebar-logo">
