@@ -6,7 +6,7 @@ let vehiLink = document.querySelector(".vehi-link");
 let logLink = document.querySelector(".log-link");
 let annoLink = document.querySelector(".anno-link");
 generateTable();
-//for the data table
+// //for the data table
 function generateTable() {
   $(document).ready(function () {
     $("table.display").DataTable({
@@ -41,24 +41,24 @@ generateDropdown();
 let headerTitle = document.querySelector("#headerTitle");
 //ajax - users side bar
 
-function loadSec() {
-  headerTitle.textContent = "Users";
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("content").innerHTML = this.responseText;
-      secLink.classList.add("active");
-      persLink.classList.remove("active");
-      resiLink.classList.remove("active");
-      visiLink.classList.remove("active");
-      generateTable();
-      let addSec = document.querySelector("#addSec");
-      addSec.addEventListener("click", () => {});
-    }
-  };
-  xhttp.open("GET", "sidebar/user-security.html", true);
-  xhttp.send();
-}
+// function loadSec() {
+//   headerTitle.textContent = "Users";
+//   let xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("content").innerHTML = this.responseText;
+//       secLink.classList.add("active");
+//       persLink.classList.remove("active");
+//       resiLink.classList.remove("active");
+//       visiLink.classList.remove("active");
+//       generateTable();
+//       let addSec = document.querySelector("#addSec");
+//       addSec.addEventListener("click", () => {});
+//     }
+//   };
+//   xhttp.open("GET", "/sidebar/user-security.html", true);
+//   xhttp.send();
+// }
 
 function loadPersonnel() {
   headerTitle.textContent = "Users";
@@ -74,7 +74,7 @@ function loadPersonnel() {
       generateTable();
     }
   };
-  xhttp.open("GET", "sidebar/user-personnel.html", true);
+  xhttp.open("GET", "/sidebar/user-personnel.html", true);
   xhttp.send();
 }
 function loadResidents() {
@@ -90,7 +90,7 @@ function loadResidents() {
       generateTable();
     }
   };
-  xhttp.open("GET", "sidebar/user-resident.html", true);
+  xhttp.open("GET", "/sidebar/user-resident.html", true);
   xhttp.send();
 }
 
@@ -108,7 +108,7 @@ function loadVisitors() {
       generateTable();
     }
   };
-  xhttp.open("GET", "sidebar/user-visitor.html", true);
+  xhttp.open("GET", "/sidebar/user-visitor.html", true);
   xhttp.send();
 }
 
@@ -131,7 +131,7 @@ function loadVehicles() {
       generateTable();
     }
   };
-  xhttp.open("GET", "sidebar/vehicles.html", true);
+  xhttp.open("GET", "/sidebar/vehicles.html", true);
   xhttp.send();
 }
 
@@ -154,7 +154,7 @@ function loadLogs() {
       generateTable();
     }
   };
-  xhttp.open("GET", "sidebar/logs.html", true);
+  xhttp.open("GET", "/sidebar/logs.html", true);
   xhttp.send();
 }
 
@@ -177,6 +177,6 @@ function loadAnnounce() {
       generateTable();
     }
   };
-  xhttp.open("GET", "sidebar/announce.html", true);
+  xhttp.open("GET", "/sidebar/announce.html", true);
   xhttp.send();
 }
