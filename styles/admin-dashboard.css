@@ -350,8 +350,8 @@ a {
 .eminem td {
   padding: 10px;
 }
-.eminem tr:nth-child(odd) {
-  background-color: white;
+.eminem tr {
+  border-bottom: 1px solid black;
 }
 
 #dataTable {

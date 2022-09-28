@@ -9,6 +9,9 @@ import {
   doc,
   query,
   where,
+  orderBy,
+  serverTimestamp,
+  getDoc,
 } from "firebase/firestore";
 
 //this config connects the backend and frontend
@@ -32,7 +35,11 @@ const db = getFirestore();
 //collection reference
 const colRef = collection(db, "security");
 
+//queries
+const q = query(colRef, orderBy("createdAt"));
+
 const loadSec = document.querySelector("#secLink");
+
 //AJAX
 loadSec.addEventListener("click", () => {
   headerTitle.textContent = "Users";
@@ -44,15 +51,6 @@ loadSec.addEventListener("click", () => {
       persLink.classList.remove("active");
       resiLink.classList.remove("active");
       visiLink.classList.remove("active");
-
-      // var t = "";
-      // $(document).ready(function () {
-      //   t = $("table.display").DataTable({
-      //     dom: "Bfrtip",
-      //     buttons: ["copy", "csv", "excel", "pdf", "print"],
-      //   });
-      // });
-
       //adding data
       //adding security calling the form, calling the addDoc function from firebase
       const addSecurity = document.querySelector("#addSecForm");
@@ -60,6 +58,7 @@ loadSec.addEventListener("click", () => {
         e.preventDefault();
         addDoc(colRef, {
           barangay: addSecurity.secBrgy.value,
+          position: addSecurity.position.value,
           email: addSecurity.secEmail.value,
           firstname: addSecurity.secFname.value,
           lastname: addSecurity.secLname.value,
@@ -69,33 +68,32 @@ loadSec.addEventListener("click", () => {
           phone: addSecurity.secPhone.value,
           province: addSecurity.secProvince.value,
           street: addSecurity.secStreet.value,
+          createdAt: serverTimestamp(),
         }).then(() => {
           addSecurity.reset();
         });
-      }); //end adding security
+      }); //end adding data
 
-      //adding data
       //creating the table data
 
-      const sectable = document.querySelector("#sectable");
+      const sectable = document.querySelector(".eminem");
       const renderSecurity = (docu) => {
         console.log(docu.id);
 
         const tr = `<tr data-id='${docu.id}'>
-          <td>${docu.data().firstname}</td>
-          <td>${docu.data().street}</td>
+          <td>${docu.data().firstname} ${docu.data().lastname}</td>
+          <td>${docu.data().position}</td>
+          <td>${docu.data().barangay}, ${docu.data().street}, ${docu.data().municipality}, ${docu.data().province}</td>
           <td>${docu.data().email}</td>
           <td>${docu.data().phone}</td>
           <td>
-            <button class="secEdit">Edit</button>
+            <a href="#editmodal" rel="modal:open"><button>Edit</button></a>
             <button class="secDelete">Delete</button>
           </td>
         </tr>`;
         sectable.insertAdjacentHTML("beforeend", tr);
         //deleting data
-        const secDelete = document.querySelector(
-          `[data-id='${docu.id}'] .secDelete`
-        );
+        const secDelete = document.querySelector(`[data-id='${docu.id}'] .secDelete`);
         secDelete.addEventListener("click", () => {
           const docRef = doc(db, "security", docu.id);
           deleteDoc(docRef).then(() => {
@@ -103,37 +101,25 @@ loadSec.addEventListener("click", () => {
           });
         });
       }; //end of render sec
+
       //getting the collection data
-
-      // db.collection("users").onSnapshot((snapshot) => {
-      //   snapshot.docChanges().forEach((change) => {
-      //     console.log(change.type);
-      //   });
-      // });
-
-      // const q = query(collection(db, "security"));
-
-      // colRef.onSnapshot((snapshot) => {
-      //   snapshot.docChanges().forEach((change) => {
-      //     console.log(change.type);
-      //   });
-      // });
-
-      onSnapshot(colRef, (snapshot) => {
+      //real time collection of data
+      onSnapshot(q, (snapshot) => {
+        let security = [];
         snapshot.docChanges().forEach((change) => {
           if (change.type === "added") {
             renderSecurity(change.doc);
           }
           if (change.type === "removed") {
             let row = document.querySelector(`[data-id="${change.doc.id}"]`);
-            let tbody = row.parentElement;
-            sectable.removeChild(tbody);
+            // let tbody = row.parentElement;
+            sectable.removeChild(row);
           }
+          security.push({ ...change.doc.data(), id: change.doc.id });
         });
+        console.log(security);
       });
-
-      //deleting data
-    } //end if
+    } //end if ready state
   };
   xhttp.open("GET", "/sidebar/user-security.html", true);
   xhttp.send();
