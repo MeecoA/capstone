@@ -306,21 +306,54 @@ a {
   border-radius: 20px;
   font-family: "Lexend Deca";
 }
-.actions-button {
+.view-button {
   background-color: #99d4ff;
-  padding: 5px;
+  padding: 8px;
   border-radius: 20px;
+  width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5px;
+  font-size: 15px;
 }
-.actions-button:hover {
+.view-button:hover {
   cursor: pointer;
   background-color: #1d90ed;
   transition: 0.3s;
 }
-.actions-button:active {
+.view-button:active {
   background-color: #99d4ff;
+}
+.view-button a {
+  color: black;
+}
+.delete-button {
+  background-color: red;
+  padding: 8px;
+  border-radius: 20px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+}
+.delete-button:hover {
+  cursor: pointer;
+  background-color: darkred;
+  transition: 0.3s;
+}
+.delete-button:active {
+  background-color: #99d4ff;
+}
+.actions-button {
+  display: flex;
+  justify-content: center;
+  font-family: "Lexend Deca";
+}
+.view-icon {
+  margin-right: 5px;
 }
 /* .act-box {
     
@@ -346,6 +379,9 @@ a {
   font-family: "Lexend Deca";
   text-align: center;
   border-collapse: collapse;
+}
+#sectable th {
+  text-align: center;
 }
 .eminem td {
   padding: 10px;
@@ -724,10 +760,35 @@ canvas {
 }
 
 .secDelete {
-  color: red;
+  color: white;
   cursor: pointer;
   z-index: 1;
+  background-color: red;
 }
+.secDelete:hover {
+  background-color: darkred;
+  transition: 0.3s;
+}
+.secEdit {
+  background-color: #99d4ff;
+  color: black;
+}
+.secEdit a {
+  color: black;
+}
+.secEdit:hover {
+  background-color: #1d90ed;
+  transition: 0.3s;
+}
+/* 
+.td-btn {
+  padding: 5px;
+  width: 80px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Lexend Deca";
+  font-weight: bold;
+} */
 
 @media only screen and (max-width: 1366px) {
   .container {
