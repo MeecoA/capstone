@@ -306,7 +306,7 @@ a {
   border-radius: 20px;
   font-family: "Lexend Deca";
 }
-.view-button {
+/* .view-button {
   background-color: #99d4ff;
   padding: 8px;
   border-radius: 20px;
@@ -327,8 +327,8 @@ a {
 }
 .view-button a {
   color: black;
-}
-.delete-button {
+} */
+/* .delete-button {
   background-color: red;
   padding: 8px;
   border-radius: 20px;
@@ -338,20 +338,20 @@ a {
   align-items: center;
   color: white;
   font-size: 15px;
-}
-.delete-button:hover {
+} */
+/* .delete-button:hover {
   cursor: pointer;
   background-color: darkred;
   transition: 0.3s;
 }
 .delete-button:active {
   background-color: #99d4ff;
-}
-.actions-button {
+} */
+/* .actions-button {
   display: flex;
   justify-content: center;
   font-family: "Lexend Deca";
-}
+} */
 .view-icon {
   margin-right: 5px;
 }
@@ -383,10 +383,10 @@ a {
 #sectable th {
   text-align: center;
 }
-.eminem td {
+.table-body td {
   padding: 10px;
 }
-.eminem tr {
+.table-body tr {
   border-bottom: 1px solid black;
 }
 
@@ -759,36 +759,48 @@ canvas {
   margin-bottom: 15px;
 }
 
-.secDelete {
-  color: white;
-  cursor: pointer;
-  z-index: 1;
-  background-color: red;
-}
-.secDelete:hover {
-  background-color: darkred;
-  transition: 0.3s;
-}
-.secEdit {
+/*table action drop downs*/
+.drop-content {
   background-color: #99d4ff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
   color: black;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
 }
-.secEdit a {
+.drop-content a {
   color: black;
+  border-radius: 20px;
+  width: 97%;
+  margin-bottom: 3px;
+  text-align: start;
+  padding: 5px;
 }
-.secEdit:hover {
+.drop-content a:hover {
   background-color: #1d90ed;
   transition: 0.3s;
 }
-/* 
-.td-btn {
-  padding: 5px;
-  width: 80px;
+
+.drop-btn {
+  background-color: #99d4ff;
+  padding: 10px;
   border-radius: 20px;
+  width: 98%;
   cursor: pointer;
-  font-family: "Lexend Deca";
-  font-weight: bold;
-} */
+}
+.drop-btn:hover {
+  background-color: #1d90ed;
+  transition: 0.3s;
+}
+.show {
+  display: flex;
+}
+/*  */
 
 @media only screen and (max-width: 1366px) {
   .container {

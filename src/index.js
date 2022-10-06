@@ -85,8 +85,12 @@ loadSec.addEventListener("click", () => {
 
       //creating the table data
       let id;
-      const sectable = document.querySelector(".eminem");
+      const sectable = document.querySelector(".table-body");
       const renderSecurity = (docu) => {
+        function secDrop() {
+          document.getElementById("dropSec").classList.toggle("show");
+        }
+
         console.log(docu.id);
 
         const tr = `<tr data-id='${docu.id}'>
@@ -97,24 +101,48 @@ loadSec.addEventListener("click", () => {
           <td>${docu.data().email}</td>
           <td>${docu.data().phone}</td>
           <td>
-            <div class = "actions-button">
-            <div class="view-button td-btn">
-            <iconify-icon
-            class="view-icon"
-            icon="ci:edit" style="color: black;" width="16" height="16"></iconify-icon>
-            <a href="#editmodal" rel="modal:open">Edit</a></div>
-            <div class="delete-button">
-            <iconify-icon
+          <div class="drop-container">
+            <button class="drop-btn">ACTIONS 
+            <iconify-icon icon="bxs:down-arrow" style="color: black;" width="12" height="12"></iconify-icon>
+            </button>
+            <div class="drop-content" id="dropSec">
+            
+              <a href=""><iconify-icon
               class="view-icon"
-              icon="ep:delete-filled"
-              style="color: white"
+              icon="bi:eye-fill"
+              style="color: black"
               width="16"
               height="16"
-            ></iconify-icon>
-            <div>Delete</div>
-          </div>
+            ></iconify-icon> View Details</a>
+
+      
+                <a href="#editmodal" rel="modal:open" class = 'view-button'>
+                <iconify-icon 
+                class="view-icon"
+                icon="bxs:user-circle" style="color: black;" width="16" height="16"></iconify-icon>
+                Edit User Information</a>
+        
+
+              <a href="">
+              <iconify-icon
+                class="view-icon"
+                icon="fa6-solid:key" style="color: black;" width="16" height="16"></iconify-icon>
+              Edit Account</a>
+
+           
+                <a href="#" class="delete-button">
+                <iconify-icon
+                  class="view-icon"
+                  icon="ep:delete-filled"
+                  style="color: black"
+                  width="16"
+                  height="16"
+                ></iconify-icon>
+                Delete User</a>
+              
             </div>
-          </td>
+          </div>
+        </td>
         </tr>`;
         sectable.insertAdjacentHTML("beforeend", tr);
         //deleting data
@@ -162,6 +190,12 @@ loadSec.addEventListener("click", () => {
             municipality: editSecForm.secMunicip.value,
             barangay: editSecForm.secBrgy.value,
           }).then(() => {});
+        });
+
+        let dropSec = document.querySelector(`[data-id='${docu.id}'] .drop-btn`);
+        let dropSecContent = document.querySelector(`[data-id='${docu.id}'] #dropSec`);
+        dropSec.addEventListener("click", () => {
+          dropSecContent.classList.toggle("show");
         });
       }; //end of render sec
 
