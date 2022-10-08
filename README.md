@@ -34,7 +34,9 @@ This is a reference list of the most commonly used Git commands. (You might cons
 # [CLICK ME!](https://meecoa.github.io/capstone/)
 
 **Figma**
-# [Project Layout](https://www.figma.com/file/zNip9bmaybuNFc6LijQGdw/PMS?node-id=8%3A109)
+# [Administrator](https://www.figma.com/file/zNip9bmaybuNFc6LijQGdw/PMS)
+# [User](https://www.figma.com/file/EzKCyKRXLPC6cROZAZFbu9/PMS---Web-Layout?node-id=0%3A1)
+# [Security Officer](https://www.figma.com/file/XVnnPAJm7eL5KmUFpu8C1F/Security-Officer-Prototype?node-id=0%3A1)
 
 **Other Notes**
 [Markdown Tutorial](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
