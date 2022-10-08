@@ -33,6 +33,11 @@ This is a reference list of the most commonly used Git commands. (You might cons
 **Our Demo**
 # [CLICK ME!](https://meecoa.github.io/capstone/)
 
+**Repositories**
+# [Administrator](https://github.com/yatonakami/securityOfficer)
+# [User](https://github.com/MeecoA/capstone)
+# [Security Officer](https://github.com/yatonakami/securityOfficer)
+
 **Figma**
 # [Administrator](https://www.figma.com/file/zNip9bmaybuNFc6LijQGdw/PMS)
 # [User](https://www.figma.com/file/EzKCyKRXLPC6cROZAZFbu9/PMS---Web-Layout?node-id=0%3A1)
