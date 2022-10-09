@@ -74,7 +74,7 @@ function loadPersonnel() {
       generateTable();
     }
   };
-  xhttp.open("GET", "/sidebar/user-personnel.html", true);
+  xhttp.open("GET", "../sidebar/user-personnel.html", true);
   xhttp.send();
 }
 function loadResidents() {
@@ -90,7 +90,7 @@ function loadResidents() {
       generateTable();
     }
   };
-  xhttp.open("GET", "/sidebar/user-resident.html", true);
+  xhttp.open("GET", "../sidebar/user-resident.html", true);
   xhttp.send();
 }
 
@@ -108,7 +108,7 @@ function loadVisitors() {
       generateTable();
     }
   };
-  xhttp.open("GET", "/sidebar/user-visitor.html", true);
+  xhttp.open("GET", "../sidebar/user-visitor.html", true);
   xhttp.send();
 }
 
@@ -131,7 +131,7 @@ function loadVehicles() {
       generateTable();
     }
   };
-  xhttp.open("GET", "/sidebar/vehicles.html", true);
+  xhttp.open("GET", "../sidebar/vehicles.html", true);
   xhttp.send();
 }
 
@@ -154,7 +154,7 @@ function loadLogs() {
       generateTable();
     }
   };
-  xhttp.open("GET", "/sidebar/logs.html", true);
+  xhttp.open("GET", "../sidebar/logs.html", true);
   xhttp.send();
 }
 
@@ -177,6 +177,6 @@ function loadAnnounce() {
       generateTable();
     }
   };
-  xhttp.open("GET", "/sidebar/announce.html", true);
+  xhttp.open("GET", "../sidebar/announce.html", true);
   xhttp.send();
 }

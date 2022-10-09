@@ -223,6 +223,6 @@ loadSec.addEventListener("click", () => {
       });
     } //end if ready state
   };
-  xhttp.open("GET", "/sidebar/user-security.html", true);
+  xhttp.open("GET", "../sidebar/user-security.html", true);
   xhttp.send();
 });
