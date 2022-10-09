@@ -70,7 +70,6 @@ function loadPersonnel() {
       persLink.classList.add("active");
       resiLink.classList.remove("active");
       visiLink.classList.remove("active");
-
       generateTable();
     }
   };

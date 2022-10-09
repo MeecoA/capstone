@@ -95,7 +95,7 @@ loadSec.addEventListener("click", () => {
 
         const tr = `<tr data-id='${docu.id}'>
           <td>${docu.id}</td>
-          <td>${docu.data().firstname} ${docu.data().lastname}</td>
+          <td>${docu.data().firstname} ${docu.data().middlename} ${docu.data().lastname}</td>
           <td>${docu.data().position}</td>
           <td>${docu.data().barangay}, ${docu.data().street}, ${docu.data().municipality}, ${docu.data().province}</td>
           <td>${docu.data().email}</td>
@@ -107,7 +107,7 @@ loadSec.addEventListener("click", () => {
             </button>
             <div class="drop-content" id="dropSec">
             
-              <a href=""><iconify-icon
+              <a href="#viewSec" rel="modal:open"><iconify-icon
               class="view-icon"
               icon="bi:eye-fill"
               style="color: black"
@@ -120,10 +120,10 @@ loadSec.addEventListener("click", () => {
                 <iconify-icon 
                 class="view-icon"
                 icon="bxs:user-circle" style="color: black;" width="16" height="16"></iconify-icon>
-                Edit User Information</a>
+                Edit User Info</a>
         
 
-              <a href="">
+              <a href="#editAccInfo" rel="modal:open" class = "editSecAccBtn">
               <iconify-icon
                 class="view-icon"
                 icon="fa6-solid:key" style="color: black;" width="16" height="16"></iconify-icon>
@@ -154,7 +154,7 @@ loadSec.addEventListener("click", () => {
           });
         }); //end of deleting data
 
-        //editing data
+        //editing data -- edit useer information only
         const editSecForm = document.querySelector("#editSecForm");
         const editSecBtn = document.querySelector(`[data-id='${docu.id}'] .view-button`);
 
@@ -162,12 +162,12 @@ loadSec.addEventListener("click", () => {
           id = docu.id;
           editSecForm.secBrgy.value = docu.data().barangay;
           editSecForm.position.value = docu.data().position;
-          editSecForm.secEmail.value = docu.data().email;
+          // editSecForm.secEmail.value = docu.data().email;
           editSecForm.secFname.value = docu.data().firstname;
           editSecForm.secLname.value = docu.data().lastname;
           editSecForm.secMname.value = docu.data().middlename;
           editSecForm.secMunicip.value = docu.data().municipality;
-          editSecForm.secPassword.value = docu.data().password;
+          // editSecForm.secPassword.value = docu.data().password;
           editSecForm.secPhone.value = docu.data().phone;
           editSecForm.secProvince.value = docu.data().province;
           editSecForm.secStreet.value = docu.data().street;
@@ -183,12 +183,13 @@ loadSec.addEventListener("click", () => {
             middlename: editSecForm.secMname.value,
             lastname: editSecForm.secLname.value,
             position: editSecForm.position.value,
-            email: editSecForm.secEmail.value,
+            // email: editSecForm.secEmail.value,
             phone: editSecForm.secPhone.value,
             province: editSecForm.secProvince.value,
             street: editSecForm.secStreet.value,
             municipality: editSecForm.secMunicip.value,
             barangay: editSecForm.secBrgy.value,
+            // password: editSecForm.secPassword.value,
           }).then(() => {});
         });
 
@@ -197,6 +198,48 @@ loadSec.addEventListener("click", () => {
         dropSec.addEventListener("click", () => {
           dropSecContent.classList.toggle("show");
         });
+
+        // Edit Account -- email and password
+        const editSecAccInfo = document.querySelector("#editSecAccForm");
+        const editSeccAccBtn = document.querySelector(`[data-id='${docu.id}'] .editSecAccBtn`);
+        const emailBox = document.querySelector(".email-box");
+        const passBox = document.querySelector(".password-box");
+
+        // script for edit account modal
+        const changeEmailBtn = document.querySelector(".change-email-button");
+        const changePassBtn = document.querySelector(".change-password-button");
+        changeEmailBtn.addEventListener("click", () => {
+          passBox.classList.add("hide-change");
+          emailBox.classList.remove("hide-change");
+          changePassBtn.classList.remove("title-bg");
+          changeEmailBtn.classList.add("title-bg");
+        });
+        changePassBtn.addEventListener("click", () => {
+          passBox.classList.remove("hide-change");
+          emailBox.classList.add("hide-change");
+          changePassBtn.classList.add("title-bg");
+          changeEmailBtn.classList.remove("title-bg");
+        });
+
+        // end script
+
+        editSeccAccBtn.addEventListener("click", () => {
+          passBox.classList.add("hide-change");
+          changeEmailBtn.classList.add("title-bg");
+          editSecAccInfo.secEmail.value = docu.data().email;
+          editSecAccInfo.secPassword.value = docu.data().password;
+        });
+        //for updating edit
+        editSecAccInfo.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const docRef2 = doc(db, "security", id);
+          updateDoc(docRef2, {
+            email: editSecAccInfo.secEmail.value,
+            password: editSecAccInfo.secPassword.value,
+          }).then(() => {});
+        });
+
+        // end edit account email and password
       }; //end of render sec
 
       //getting the collection data
