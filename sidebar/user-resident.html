@@ -17,11 +17,11 @@
             height="36"
           ></iconify-icon>
         </div>
-        <div class="distri-title">Residents</div>
+        <div class="distri-title">Faculty/NAPA</div>
       </div>
       <div class="box-table">
         <div class="ajax-container">
-          <table id="sectable" class="display">
+          <table id="facultyTable" class="display">
             <thead>
               <tr>
                 <th>ID</th>
@@ -32,8 +32,8 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody class="facultyTbody">
+              <!-- <tr>
                 <td>A0001</td>
                 <td>Officer</td>
                 <td>0001</td>
@@ -41,7 +41,7 @@
                 <td>0923737392</td>
                 <td>
                   <div class="actions-button">
-                    <div class="view-button">
+                    <div class="view-btn">
                       <iconify-icon
                         class="view-icon"
                         icon="bi:eye-fill"
@@ -51,7 +51,7 @@
                       ></iconify-icon>
                       <div>View</div>
                     </div>
-                    <div class="delete-button">
+                    <div class="delete-btn">
                       <iconify-icon
                         class="view-icon"
                         icon="ep:delete-filled"
@@ -63,16 +63,11 @@
                     </div>
                   </div>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
       </div>
-      <script>
-        $(document).ready(function () {
-          $("#sectable").DataTable();
-        });
-      </script>
     </div>
   </body>
 </html>

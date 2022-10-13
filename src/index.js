@@ -13,6 +13,7 @@ import {
   serverTimestamp,
   getDoc,
   updateDoc,
+  getDocs,
 } from "firebase/firestore";
 
 //this config connects the backend and frontend
@@ -43,13 +44,14 @@ const db = getFirestore();
 
 //collection reference
 const colRef = collection(db, "security");
-
+const accColRef = collection(db, "account-information");
 //queries
 const q = query(colRef, orderBy("createdAt"));
-
+const q2 = query(accColRef, orderBy("createdAt"));
 const loadSec = document.querySelector("#secLink");
+const loadFaculty = document.querySelector("#resiLink");
 let id;
-//AJAX
+//AJAX START FOR SECURITY
 loadSec.addEventListener("click", () => {
   headerTitle.textContent = "Users";
   let xhttp = new XMLHttpRequest();
@@ -107,7 +109,7 @@ loadSec.addEventListener("click", () => {
             </button>
             <div class="drop-content" id="dropSec">
             
-              <a href="#viewSec" rel="modal:open"><iconify-icon
+              <a href="#viewSec" rel="modal:open" class="view-button"><iconify-icon
               class="view-icon"
               icon="bi:eye-fill"
               style="color: black"
@@ -116,7 +118,7 @@ loadSec.addEventListener("click", () => {
             ></iconify-icon> View Details</a>
 
       
-                <a href="#editmodal" rel="modal:open" class = 'view-button'>
+                <a href="#editmodal" rel="modal:open" class = 'edit-button'>
                 <iconify-icon 
                 class="view-icon"
                 icon="bxs:user-circle" style="color: black;" width="16" height="16"></iconify-icon>
@@ -156,7 +158,7 @@ loadSec.addEventListener("click", () => {
 
         //editing data -- edit useer information only
         const editSecForm = document.querySelector("#editSecForm");
-        const editSecBtn = document.querySelector(`[data-id='${docu.id}'] .view-button`);
+        const editSecBtn = document.querySelector(`[data-id='${docu.id}'] .edit-button`);
 
         editSecBtn.addEventListener("click", () => {
           id = docu.id;
@@ -198,6 +200,19 @@ loadSec.addEventListener("click", () => {
         dropSec.addEventListener("click", () => {
           dropSecContent.classList.toggle("show");
         });
+        //dropdown - if user clicks outside of the dropdown
+        window.onclick = function (event) {
+          if (!event.target.matches(".drop-btn")) {
+            var dropdowns = document.getElementsByClassName("drop-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+              }
+            }
+          }
+        };
 
         // Edit Account -- email and password
         const editSecAccInfo = document.querySelector("#editSecAccForm");
@@ -239,6 +254,27 @@ loadSec.addEventListener("click", () => {
           }).then(() => {});
         });
 
+        //viewing the security information
+        const viewName = document.querySelector(".viewName");
+        const viewPos = document.querySelector(".viewPos");
+        const viewAddress = document.querySelector(".viewAddress");
+        const viewPhone = document.querySelector(".viewPhone");
+        const viewEmail = document.querySelector(".viewEmail");
+        const viewButton = document.querySelector(`[data-id='${docu.id}'] .view-button`);
+        const fullName = `${docu.data().firstname} ${docu.data().middlename} ${docu.data().lastname}`;
+        const fullAddress = `${docu.data().barangay}, ${docu.data().street}, ${docu.data().municipality}, ${
+          docu.data().province
+        }`;
+
+        viewButton.addEventListener("click", () => {
+          viewName.textContent = fullName;
+          viewPos.textContent = docu.data().position;
+          viewAddress.textContent = fullAddress;
+          viewPhone.textContent = docu.data().phone;
+          viewEmail.textContent = docu.data().email;
+        });
+        //end view
+
         // end edit account email and password
       }; //end of render sec
 
@@ -269,3 +305,121 @@ loadSec.addEventListener("click", () => {
   xhttp.open("GET", "../sidebar/user-security.html", true);
   xhttp.send();
 });
+//AJAX END FOR SECURITY
+
+//AJAX START FOR FACULTY
+loadFaculty.addEventListener("click", () => {
+  headerTitle.textContent = "Users";
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("content").innerHTML = this.responseText;
+      secLink.classList.remove("active");
+      persLink.classList.remove("active");
+      resiLink.classList.add("active");
+      visiLink.classList.remove("active");
+      // generateTable();
+
+      // rendering the data
+      const facultyTbody = document.querySelector(".facultyTbody");
+      var t = $("table.display").DataTable({
+        dom: "Bfrtip",
+        buttons: ["copy", "csv", "excel", "pdf", "print"],
+
+        createdRow: function (row, data, dataIndex) {
+          // Set the data-status attribute, and add a class
+          $(row).attr("data-id", `${doc.id}`);
+        },
+      });
+
+      const renderFaculty = (doc) => {
+        t.row
+          .add([
+            doc.id,
+            `${doc.data().first_name} ${doc.data().last_name}`,
+            doc.data().id_number,
+            doc.data().is_active,
+            doc.data().phone_num,
+            `<div class="actions-button">
+            <div class="view-btn">
+              <iconify-icon
+                class="view-icon"
+                icon="bi:eye-fill"
+                style="color: black"
+                width="16"
+                height="16"
+              ></iconify-icon>
+              <div>View</div>
+            </div>
+            <div class="delete-btn">
+              <iconify-icon
+                class="view-icon"
+                icon="ep:delete-filled"
+                style="color: white"
+                width="16"
+                height="16"
+              ></iconify-icon>
+              <div>Delete</div>
+            </div>
+          </div>`,
+          ])
+          .draw(false);
+        // const tr = `
+        // <tr>
+        //         <td>${doc.id}</td>
+        //         <td>${doc.data().first_name}</td>
+        //         <td>0001</td>
+        //         <td>email@email.com</td>
+        //         <td>0923737392</td>
+        //         <td>
+        //           <div class="actions-button">
+        //             <div class="view-btn">
+        //               <iconify-icon
+        //                 class="view-icon"
+        //                 icon="bi:eye-fill"
+        //                 style="color: black"
+        //                 width="16"
+        //                 height="16"
+        //               ></iconify-icon>
+        //               <div>View</div>
+        //             </div>
+        //             <div class="delete-btn">
+        //               <iconify-icon
+        //                 class="view-icon"
+        //                 icon="ep:delete-filled"
+        //                 style="color: white"
+        //                 width="16"
+        //                 height="16"
+        //               ></iconify-icon>
+        //               <div>Delete</div>
+        //             </div>
+        //           </div>
+        //         </td>
+        //       </tr>`;
+        // facultyTbody.insertAdjacentHTML("beforeend", tr);
+      }; //end of render sec
+
+      //getting the data
+      // getDocs(accColRef).then((snapshot) => {
+      //   let accs = [];
+      //   snapshot.docs.forEach((doc) => {
+      //     renderFaculty(doc);
+      //     accs.push({ ...doc.data(), id: doc.id });
+      //   });
+      //   console.log(accs);
+      // });
+      // end getting data
+
+      onSnapshot(q2, (snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          if (change.type === "added") {
+            renderFaculty(change.doc);
+          }
+        });
+      });
+    } //end if ready state
+  };
+  xhttp.open("GET", "../sidebar/user-resident.html", true);
+  xhttp.send();
+});
+//AJAX END FOR FACULTY

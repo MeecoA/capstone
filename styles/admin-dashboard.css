@@ -306,7 +306,7 @@ a {
   border-radius: 20px;
   font-family: "Lexend Deca";
 }
-/* .view-button {
+.view-btn {
   background-color: #99d4ff;
   padding: 8px;
   border-radius: 20px;
@@ -317,18 +317,18 @@ a {
   margin-right: 5px;
   font-size: 15px;
 }
-.view-button:hover {
+.view-btn:hover {
   cursor: pointer;
   background-color: #1d90ed;
   transition: 0.3s;
 }
-.view-button:active {
+.view-btn:active {
   background-color: #99d4ff;
 }
-.view-button a {
+.view-btn a {
   color: black;
-} */
-/* .delete-button {
+}
+.delete-btn {
   background-color: red;
   padding: 8px;
   border-radius: 20px;
@@ -338,32 +338,23 @@ a {
   align-items: center;
   color: white;
   font-size: 15px;
-} */
-/* .delete-button:hover {
+}
+.delete-btn:hover {
   cursor: pointer;
   background-color: darkred;
   transition: 0.3s;
 }
-.delete-button:active {
+.delete-btn:active {
   background-color: #99d4ff;
-} */
-/* .actions-button {
+}
+.actions-button {
   display: flex;
   justify-content: center;
   font-family: "Lexend Deca";
-} */
+}
 .view-icon {
   margin-right: 5px;
 }
-/* .act-box {
-    
-}
-.no-user-box {
-
-}
-.no-vehicle-box {
-
-} */
 .graphs-container {
   width: 15vw;
   margin-top: 20px;

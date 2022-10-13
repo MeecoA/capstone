@@ -38,8 +38,8 @@ function generateDropdown() {
   });
 }
 generateDropdown();
-let headerTitle = document.querySelector("#headerTitle");
-//ajax - users side bar
+// let headerTitle = document.querySelector("#headerTitle");
+// //ajax - users side bar
 
 // function loadSec() {
 //   headerTitle.textContent = "Users";
@@ -76,22 +76,22 @@ function loadPersonnel() {
   xhttp.open("GET", "../sidebar/user-personnel.html", true);
   xhttp.send();
 }
-function loadResidents() {
-  headerTitle.textContent = "Users";
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("content").innerHTML = this.responseText;
-      secLink.classList.remove("active");
-      persLink.classList.remove("active");
-      resiLink.classList.add("active");
-      visiLink.classList.remove("active");
-      generateTable();
-    }
-  };
-  xhttp.open("GET", "../sidebar/user-resident.html", true);
-  xhttp.send();
-}
+// function loadResidents() {
+//   headerTitle.textContent = "Users";
+//   let xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("content").innerHTML = this.responseText;
+//       secLink.classList.remove("active");
+//       persLink.classList.remove("active");
+//       resiLink.classList.add("active");
+//       visiLink.classList.remove("active");
+//       generateTable();
+//     }
+//   };
+//   xhttp.open("GET", "../sidebar/user-resident.html", true);
+//   xhttp.send();
+// }
 
 function loadVisitors() {
   headerTitle.textContent = "Users";

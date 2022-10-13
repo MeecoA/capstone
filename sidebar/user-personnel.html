@@ -17,8 +17,137 @@
             height="36"
           ></iconify-icon>
         </div>
-        <div class="distri-title">Personnels</div>
+        <div class="distri-title">Admin Council</div>
       </div>
+
+      <div class="button-holder">
+        <!-- modal for adding security -->
+        <div id="addmodal" class="modal">
+          <form id="addSecForm">
+            <div class="add-new-box">
+              <div class="entry-title"><p>ADD NEW ENTRY</p></div>
+              <div class="sec-pic-holder">
+                <div class="sec-pic">
+                  <iconify-icon
+                    icon="healthicons:ui-user-profile-negative"
+                    style="color: black"
+                    width="160"
+                    height="147"
+                  ></iconify-icon>
+                </div>
+                <div class="position-holder">
+                  <div>ADD PROFILE PICTURE</div>
+                  <select name="position" id="secPosition">
+                    <option value="" disabled selected>USER TYPE</option>
+                    <option value="Officer">Admin Council</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="add-sec-inputs">
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="bi:person-fill" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>First Name:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="text" name="secFname" />
+                  </div>
+                </div>
+
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="bi:person-fill" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>Middle Name:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="text" name="secMname" />
+                  </div>
+                </div>
+
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="bi:person-fill" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>Last Name:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="text" name="secLname" />
+                  </div>
+                </div>
+              </div>
+              <div class="add-sec-grid2">
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="bxs:phone" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>Phone Number:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="text" name="secPhone" />
+                  </div>
+                </div>
+
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon
+                      icon="emojione-v1:classical-building"
+                      style="color: black"
+                      width="25.5"
+                      height="25.5"
+                    ></iconify-icon>
+                    <p>ID Number:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="text" name="secMunicip" />
+                  </div>
+                </div>
+
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="eva:email-fill" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>Email Address:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="text" name="secEmail" />
+                  </div>
+                </div>
+
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="entypo:key" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>Password:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="password" name="secPassword" />
+                  </div>
+                </div>
+
+                <div class="sec-input-box">
+                  <div class="labelbox">
+                    <iconify-icon icon="entypo:key" style="color: black" width="25.5" height="25.5"></iconify-icon>
+                    <p>Confirm Password:</p>
+                  </div>
+                  <div class="sec-input">
+                    <input type="password" name="secCpassword" />
+                  </div>
+                </div>
+              </div>
+              <div class="add-sec-buttons">
+                <button class="sec-buttons cancel">
+                  <a href="#" rel="modal:close"> CANCEL</a>
+                </button>
+                <button class="sec-buttons add-entry" type="submit">ADD ENTRY</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <a href="#addmodal" id="addSec" rel="modal:open">
+          <iconify-icon icon="akar-icons:person-add" style="color: black" width="16" height="16"></iconify-icon>
+          <div>ADD ENTRY</div>
+        </a>
+      </div>
+
+      <!-- end add modal -->
+
       <div class="box-table">
         <div class="ajax-container">
           <table id="sectable" class="display">
@@ -41,7 +170,7 @@
                 <td>0923737392</td>
                 <td>
                   <div class="actions-button">
-                    <div class="view-button">
+                    <div class="view-btn">
                       <iconify-icon
                         class="view-icon"
                         icon="bi:eye-fill"
@@ -51,7 +180,7 @@
                       ></iconify-icon>
                       <div>View</div>
                     </div>
-                    <div class="delete-button">
+                    <div class="delete-btn">
                       <iconify-icon
                         class="view-icon"
                         icon="ep:delete-filled"
@@ -68,6 +197,7 @@
           </table>
         </div>
       </div>
+
       <script>
         $(document).ready(function () {
           $("#sectable").DataTable();
