@@ -626,6 +626,21 @@ canvas {
   align-items: center;
   font-family: "Lexend Deca";
 }
+#secUpload > input {
+  display: none;
+}
+
+#uploaBtn {
+  width: 100%;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #99d4ff;
+}
+#uploaBtn:hover {
+  background-color: #1d90ed;
+  transition: 0.3s;
+}
 .position-holder {
   font-family: "Lexend Deca";
   font-style: normal;

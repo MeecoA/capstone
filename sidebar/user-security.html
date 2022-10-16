@@ -1,5 +1,5 @@
 <body>
-  <div class="ajax-container items table-box">
+  <div class="ajax-container items table-box" id="here">
     <div class="content-titles distri-flex">
       <div class="sidebar-logo">
         <iconify-icon icon="icon-park-solid:table-report" style="color: #474747" width="36" height="36"></iconify-icon>
@@ -13,13 +13,18 @@
           <div class="add-new-box">
             <div class="entry-title"><p>ADD NEW ENTRY</p></div>
             <div class="sec-pic-holder">
-              <div class="sec-pic">
-                <iconify-icon
-                  icon="healthicons:ui-user-profile-negative"
-                  style="color: black"
-                  width="160"
-                  height="147"
-                ></iconify-icon>
+              <div class="sec-pic" id="secUpload">
+                <label for="imgInput">
+                  <iconify-icon
+                    id="preview"
+                    icon="healthicons:ui-user-profile-negative"
+                    style="color: #000000"
+                    width="160"
+                    height="147"
+                  ></iconify-icon>
+                </label>
+                <input type="file" id="imgInput" class="custom-file-input" />
+                <button id="uploaBtn" type="button">UPLOAD</button>
               </div>
               <div class="position-holder">
                 <div>ADD PROFILE PICTURE</div>
@@ -171,13 +176,13 @@
         <div>ADD ENTRY</div>
       </a>
     </div>
-    
+
     <!-- end add modal -->
 
     <!-- table of security -->
     <div class="box-table">
       <div class="ajax-container">
-        <table id="sectable">
+        <table id="sectable" class="display">
           <thead>
             <tr>
               <th>ID</th>
@@ -435,21 +440,31 @@
       </div>
 
       <div class="view-details-container">
-          <div class="view-details-box">
-            <p class="view-title">ADDRESS:</p>
-            <div class="viewAddress views">99 dasda street, bocaue bulacan</div>
-          </div>
-          <div class="view-details-box">
-            <p class="view-title">CONTACT NUMBER:</p>
-            <div class="viewPhone views">09282712312</div>
-          </div>
-          <div class="view-details-box">
-            <p class="view-title">EMAIL:</p>
-            <div class="viewEmail views">XXX@gmail.com</div>
-          </div>
+        <div class="view-details-box">
+          <p class="view-title">ADDRESS:</p>
+          <div class="viewAddress views">99 dasda street, bocaue bulacan</div>
+        </div>
+        <div class="view-details-box">
+          <p class="view-title">CONTACT NUMBER:</p>
+          <div class="viewPhone views">09282712312</div>
+        </div>
+        <div class="view-details-box">
+          <p class="view-title">EMAIL:</p>
+          <div class="viewEmail views">XXX@gmail.com</div>
         </div>
       </div>
     </div>
   </div>
   <!-- end of viewing security -->
+  <script>
+    function getImagePreview(event) {
+      var image = URL.createObjectURL(event.target.files[0]);
+      var imagediv = document.getElementById("preview");
+      var newimg = document.createElement("img");
+      imagediv.innerHTML = "";
+      newimg.src = image;
+      newimg.width = "300";
+      imagediv.appendChild(newimg);
+    }
+  </script>
 </body>

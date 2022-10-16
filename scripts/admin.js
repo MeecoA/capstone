@@ -134,28 +134,28 @@ function loadVehicles() {
   xhttp.send();
 }
 
-function loadLogs() {
-  headerTitle.textContent = "Logs";
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("content").innerHTML = this.responseText;
-      secLink.classList.remove("active");
-      persLink.classList.remove("active");
-      resiLink.classList.remove("active");
-      visiLink.classList.add("active");
+// function loadLogs() {
+//   headerTitle.textContent = "Logs";
+//   let xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("content").innerHTML = this.responseText;
+//       secLink.classList.remove("active");
+//       persLink.classList.remove("active");
+//       resiLink.classList.remove("active");
+//       visiLink.classList.add("active");
 
-      dropdownContent.style.display = "none";
-      dropDown.classList.remove("active");
-      vehiLink.classList.remove("active");
-      logLink.classList.add("active");
-      annoLink.classList.remove("active");
-      generateTable();
-    }
-  };
-  xhttp.open("GET", "../sidebar/logs.html", true);
-  xhttp.send();
-}
+//       dropdownContent.style.display = "none";
+//       dropDown.classList.remove("active");
+//       vehiLink.classList.remove("active");
+//       logLink.classList.add("active");
+//       annoLink.classList.remove("active");
+//       generateTable();
+//     }
+//   };
+//   xhttp.open("GET", "../sidebar/logs.html", true);
+//   xhttp.send();
+// }
 
 function loadAnnounce() {
   headerTitle.textContent = "Announcements";

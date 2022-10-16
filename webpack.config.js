@@ -8,4 +8,7 @@ module.exports = {
     filename: "bundle.js",
   },
   watch: true,
+  experiments: {
+    topLevelAwait: true,
+  },
 };

@@ -14,7 +14,9 @@ import {
   getDoc,
   updateDoc,
   getDocs,
+  collectionGroup,
 } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 //this config connects the backend and frontend
 //after this, intall firebase in node.js
@@ -43,14 +45,22 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 
 //collection reference
-const colRef = collection(db, "security");
+const secColRef = collection(db, "security");
 const accColRef = collection(db, "account-information");
+const logsColRef = collection(db, "logs");
+// for storage
+
 //queries
-const q = query(colRef, orderBy("createdAt"));
-const q2 = query(accColRef, orderBy("createdAt"));
+const secQuery = query(secColRef, orderBy("createdAt"));
+const accQuery = query(accColRef, orderBy("createdAt"));
+// Side bar links
 const loadSec = document.querySelector("#secLink");
 const loadFaculty = document.querySelector("#resiLink");
-let id;
+const loadLogs = document.querySelector("#logsLink");
+
+// dashboard scripts
+const userCount = document.querySelector("#userCount");
+
 //AJAX START FOR SECURITY
 loadSec.addEventListener("click", () => {
   headerTitle.textContent = "Users";
@@ -64,10 +74,34 @@ loadSec.addEventListener("click", () => {
       visiLink.classList.remove("active");
       //adding data
       //adding security calling the form, calling the addDoc function from firebase
+      let uploaBtn = document.querySelector("#uploaBtn");
+      uploaBtn.addEventListener("click", () => {
+        const storage = getStorage();
+        const storageRef = ref(storage, "sample-Pic");
+
+        var file = document.querySelector("#imgInput").files[0];
+        var name = file.name;
+        var metadata = {
+          contentType: file.type,
+        };
+        // var uploadTask = storageRef.child(name).put(file, metadata);
+        // uploadTask
+        //   .then((snapshot) => snapshot.ref.getDownloadURL())
+        //   .then((url) => {
+        //     console.log(url);
+        //   });
+
+        // console.log(name);
+
+        uploadBytes(storageRef, file).then((snapshot) => {
+          console.log("UPLOADED");
+        });
+      });
+
       const addSecurity = document.querySelector("#addSecForm");
       addSecurity.addEventListener("submit", (e) => {
         e.preventDefault();
-        addDoc(colRef, {
+        addDoc(secColRef, {
           barangay: addSecurity.secBrgy.value,
           position: addSecurity.position.value,
           email: addSecurity.secEmail.value,
@@ -83,17 +117,73 @@ loadSec.addEventListener("click", () => {
         }).then(() => {
           addSecurity.reset();
         });
+        // updateDiv();
       }); //end adding data
 
       //creating the table data
       let id;
       const sectable = document.querySelector(".table-body");
-      const renderSecurity = (docu) => {
-        function secDrop() {
-          document.getElementById("dropSec").classList.toggle("show");
-        }
 
+      // var t = $("table.display").DataTable({
+      //   dom: "Bfrtip",
+      //   buttons: ["copy", "csv", "excel", "pdf", "print"],
+      // });
+
+      const renderSecurity = (docu) => {
         console.log(docu.id);
+
+        // var temp = t.row
+        //   .add([
+        //     docu.id,
+        //     `${docu.data().firstname} ${docu.data().middlename} ${docu.data().lastname}`,
+        //     docu.data().position,
+        //     `${docu.data().barangay}, ${docu.data().street}, ${docu.data().municipality}, ${docu.data().province}`,
+        //     docu.data().email,
+        //     docu.data().phone,
+        //     `
+        //     <div class="drop-container">
+        //       <button class="drop-btn">ACTIONS
+        //       <iconify-icon icon="bxs:down-arrow" style="color: black;" width="12" height="12"></iconify-icon>
+        //       </button>
+        //       <div class="drop-content" id="dropSec">
+
+        //         <a href="#viewSec" rel="modal:open" class="view-button"><iconify-icon
+        //         class="view-icon"
+        //         icon="bi:eye-fill"
+        //         style="color: black"
+        //         width="16"
+        //         height="16"
+        //       ></iconify-icon> View Details</a>
+
+        //           <a href="#editmodal" rel="modal:open" class = 'edit-button'>
+        //           <iconify-icon
+        //           class="view-icon"
+        //           icon="bxs:user-circle" style="color: black;" width="16" height="16"></iconify-icon>
+        //           Edit User Info</a>
+
+        //         <a href="#editAccInfo" rel="modal:open" class = "editSecAccBtn">
+        //         <iconify-icon
+        //           class="view-icon"
+        //           icon="fa6-solid:key" style="color: black;" width="16" height="16"></iconify-icon>
+        //         Edit Account</a>
+
+        //           <a href="#" class="delete-button">
+        //           <iconify-icon
+        //             class="view-icon"
+        //             icon="ep:delete-filled"
+        //             style="color: black"
+        //             width="16"
+        //             height="16"
+        //           ></iconify-icon>
+        //           Delete User</a>
+
+        //       </div>
+        //     </div>
+        //   `,
+        //   ])
+        //   .draw(false)
+        //   .node();
+        // $(temp).attr("data-id", `${docu.id}`);
 
         const tr = `<tr data-id='${docu.id}'>
           <td>${docu.id}</td>
@@ -104,11 +194,11 @@ loadSec.addEventListener("click", () => {
           <td>${docu.data().phone}</td>
           <td>
           <div class="drop-container">
-            <button class="drop-btn">ACTIONS 
+            <button class="drop-btn">ACTIONS
             <iconify-icon icon="bxs:down-arrow" style="color: black;" width="12" height="12"></iconify-icon>
             </button>
             <div class="drop-content" id="dropSec">
-            
+
               <a href="#viewSec" rel="modal:open" class="view-button"><iconify-icon
               class="view-icon"
               icon="bi:eye-fill"
@@ -117,13 +207,11 @@ loadSec.addEventListener("click", () => {
               height="16"
             ></iconify-icon> View Details</a>
 
-      
                 <a href="#editmodal" rel="modal:open" class = 'edit-button'>
-                <iconify-icon 
+                <iconify-icon
                 class="view-icon"
                 icon="bxs:user-circle" style="color: black;" width="16" height="16"></iconify-icon>
                 Edit User Info</a>
-        
 
               <a href="#editAccInfo" rel="modal:open" class = "editSecAccBtn">
               <iconify-icon
@@ -131,7 +219,6 @@ loadSec.addEventListener("click", () => {
                 icon="fa6-solid:key" style="color: black;" width="16" height="16"></iconify-icon>
               Edit Account</a>
 
-           
                 <a href="#" class="delete-button">
                 <iconify-icon
                   class="view-icon"
@@ -141,7 +228,7 @@ loadSec.addEventListener("click", () => {
                   height="16"
                 ></iconify-icon>
                 Delete User</a>
-              
+
             </div>
           </div>
         </td>
@@ -280,7 +367,7 @@ loadSec.addEventListener("click", () => {
 
       //getting the collection data
       //real time collection of data
-      onSnapshot(q, (snapshot) => {
+      onSnapshot(secQuery, (snapshot) => {
         let security = [];
         snapshot.docChanges().forEach((change) => {
           if (change.type === "added") {
@@ -325,15 +412,10 @@ loadFaculty.addEventListener("click", () => {
       var t = $("table.display").DataTable({
         dom: "Bfrtip",
         buttons: ["copy", "csv", "excel", "pdf", "print"],
-
-        createdRow: function (row, data, dataIndex) {
-          // Set the data-status attribute, and add a class
-          $(row).attr("data-id", `${doc.id}`);
-        },
       });
 
       const renderFaculty = (doc) => {
-        t.row
+        var temp = t.row
           .add([
             doc.id,
             `${doc.data().first_name} ${doc.data().last_name}`,
@@ -363,7 +445,9 @@ loadFaculty.addEventListener("click", () => {
             </div>
           </div>`,
           ])
-          .draw(false);
+          .draw(false)
+          .node();
+        $(temp).attr("data-id", `${doc.id}`);
         // const tr = `
         // <tr>
         //         <td>${doc.id}</td>
@@ -410,10 +494,12 @@ loadFaculty.addEventListener("click", () => {
       // });
       // end getting data
 
-      onSnapshot(q2, (snapshot) => {
+      onSnapshot(accQuery, (snapshot) => {
         snapshot.docChanges().forEach((change) => {
+          let accs = [];
           if (change.type === "added") {
             renderFaculty(change.doc);
+            accs.push({ ...change.doc.data(), id: change.doc.id });
           }
         });
       });
@@ -423,3 +509,48 @@ loadFaculty.addEventListener("click", () => {
   xhttp.send();
 });
 //AJAX END FOR FACULTY
+
+// AJAX FOR LOGS
+loadLogs.addEventListener("click", () => {
+  headerTitle.textContent = "Logs";
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("content").innerHTML = this.responseText;
+      secLink.classList.remove("active");
+      persLink.classList.remove("active");
+      resiLink.classList.remove("active");
+      visiLink.classList.add("active");
+
+      dropdownContent.style.display = "none";
+      dropDown.classList.remove("active");
+      vehiLink.classList.remove("active");
+      logLink.classList.add("active");
+      annoLink.classList.remove("active");
+      var t = $("table.display").DataTable({
+        dom: "Bfrtip",
+        buttons: ["copy", "csv", "excel", "pdf", "print"],
+
+        createdRow: function (row, data, dataIndex) {
+          // Set the data-status attribute, and add a class
+          $(row).attr("data-id", `${doc.id}`);
+        },
+      });
+      //  getting the data
+      getDocs(logsColRef).then((snapshot) => {
+        let accs = [];
+        snapshot.docs.forEach((doc) => {
+          accs.push({ data: doc.data(), id: doc.id });
+        });
+        console.log(accs);
+        console.log();
+      });
+
+      // end getting data
+    } //end if ready state
+  };
+  xhttp.open("GET", "../sidebar/logs.html", true);
+  xhttp.send();
+});
+
+// AJAX END FOR LOGS
