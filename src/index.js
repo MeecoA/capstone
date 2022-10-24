@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {
+  //importing different products of firebase
   getFirestore,
   collection,
   onSnapshot,
@@ -13,11 +14,7 @@ import {
   getDoc,
   updateDoc,
   getDocs,
-  setDoc,
   collectionGroup,
-  arrayUnion,
-  arrayRemove,
-  increment
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
@@ -40,40 +37,9 @@ const firebaseConfig = {
 //   appId: "1:619482030443:web:f0d4435fed137c16902c2e",
 //   measurementId: "G-VNRXHHQSRB",
 // };
+
 //for initializing app
 initializeApp(firebaseConfig);
-
-// EXPORTS
-// init service, Firestore is more concerned in Collections than JSON.
-export const database = getFirestore(); //anything we do in our DB, we use this
-export const storage = getStorage(); //get the firebase storage
-// const colRef1 = collection(db, 'account-information');
-// const colRef2 = collection(db, 'vehicle-information');
-
-//exports
-
-
-// Firestore
-export const myGetFirestore = getFirestore;
-export const myCollection = collection;
-export const myOnSnapshot = onSnapshot;
-export const myGetDocs = getDocs;
-export const myGetDoc = getDoc;
-export const myAddDoc = addDoc;
-export const myDeleteDoc = deleteDoc;
-export const myDoc = doc;
-export const myUpdateDoc = updateDoc;
-export const doSetDoc = setDoc;
-export const doQuery = query;
-export const doWhere = where;
-export const doOrderBy = orderBy;
-
-export const doArrayUnion = arrayUnion;
-export const doArrayRemove = arrayRemove;
-export const doIncrement = increment;
-
-
-
 
 // initializing services
 const db = getFirestore();
@@ -561,24 +527,24 @@ loadLogs.addEventListener("click", () => {
       vehiLink.classList.remove("active");
       logLink.classList.add("active");
       annoLink.classList.remove("active");
-      // var t = $("table.display").DataTable({
-      //   dom: "Bfrtip",
-      //   buttons: ["copy", "csv", "excel", "pdf", "print"],
+      var t = $("table.display").DataTable({
+        dom: "Bfrtip",
+        buttons: ["copy", "csv", "excel", "pdf", "print"],
 
-      //   createdRow: function (row, data, dataIndex) {
-      //     // Set the data-status attribute, and add a class
-      //     $(row).attr("data-id", `${doc.id}`);
-      //   },
-      // });
-      // //  getting the data
-      // getDocs(logsColRef).then((snapshot) => {
-      //   let accs = [];
-      //   snapshot.docs.forEach((doc) => {
-      //     accs.push({ data: doc.data(), id: doc.id });
-      //   });
-      //   console.log(accs);
-      //   console.log();
-      // });
+        createdRow: function (row, data, dataIndex) {
+          // Set the data-status attribute, and add a class
+          $(row).attr("data-id", `${doc.id}`);
+        },
+      });
+      //  getting the data
+      getDocs(logsColRef).then((snapshot) => {
+        let accs = [];
+        snapshot.docs.forEach((doc) => {
+          accs.push({ data: doc.data(), id: doc.id });
+        });
+        console.log(accs);
+        console.log();
+      });
 
       // end getting data
     } //end if ready state
